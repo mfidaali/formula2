@@ -25,5 +25,5 @@ function calculateFormula(arrayInput, arrayOutput){
 	resetVal(arrayOutput);
 	
 	//Calculate
-	arrayOutput[0].value = (arrayInput[0]-0.025)*arrayInput[1] + 1;
+        arrayOutput[0].value = arrayInput[0]-(0.025*arrayInput[1]) + 1;
 }
