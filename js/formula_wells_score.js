@@ -29,7 +29,8 @@ var arrayInputObjVal = [
     
 ];
 
-var arrayOutputObj = document.getElementsByName("formulaFinal");
+var arrayOutputObj  = document.getElementsByName("formulaFinal");
+var arrayOutputText = document.getElementById("scoreText");
 
 window.onload=function() {
     document.getElementById('btnReset').onclick = function(){
@@ -43,23 +44,27 @@ window.onload=function() {
 	resetValRadio(arrayInputObj4);
 	resetValRadio(arrayInputObj5);
 	resetValRadio(arrayInputObj6);
-	resetValRadio(arrayOutputObj);
+	resetVal(arrayOutputObj);
+	arrayOutputText.innerHTML = "";
     }
     document.getElementById('btnCalc').onclick = function(){
 	//Stop form input submission
 	event.preventDefault();
 	
 	//Calculate Formula
-	calculateFormula(arrayInputObjVal, arrayOutputObj);
+	calculateFormula(arrayInputObjVal, arrayOutputObj, arrayOutputText);
     }
 }
 
-function calculateFormula(arrayInput, arrayOutput){ 	
+function calculateFormula(arrayInput, arrayOutput, arrayOutputText){ 	
 
     //Reset outputs before calculation
     resetVal(arrayOutput);
-    var totalScore= new Number(0);
+    arrayOutputText.innerHTML = "";
+   
+    
     //Calculate
+    var totalScore= new Number(0);
     for(var i=0; i<arrayInput.length; i++){
 	if (arrayInput[i][0].checked==true)
 	{
@@ -71,17 +76,14 @@ function calculateFormula(arrayInput, arrayOutput){
 	}	    
     }
     arrayOutput[0].value = totalScore;
-    if(arrayOutput[0].value<=1.5){
-	arrayOutput[1].value="Geringe klinische Wahrscheinlichkeit für das Vorliegen einer Lungenembolie";
+    if(arrayOutput[0].value <= 1.5){
+	arrayOutputText.innerHTML = "Geringe klinische Wahrscheinlichkeit fuer das Vorliegen einer Lungenembolie";
     }
-    else if(arrayOutput[0]>1.5 && arrayOutput[0]<3){
-	arrayOutput[1].value="Mittlere klinische Wahrscheinlichkeit für das Vorliegen einer Lungenembolie";
+    else if(arrayOutput[0].value > 1.5 && arrayOutput[0].value < 6){
+	arrayOutputText.innerHTML = "Mittlere klinische Wahrscheinlichkeit fuer das Vorliegen einer Lungenembolie";
     }
     else{
-	arrayOutput[1].value="High klinische Wahrscheinlichkeit für das Vorliegen einer Lungenembolie";
-
-    }
-	
-	
+	arrayOutputText.innerHTML = "Hohe klinische Wahrscheinlichkeit fuer das Vorliegen einer Lungenembolie";
+    }  
 }
 

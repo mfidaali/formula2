@@ -4,6 +4,18 @@
 	color: #9d9d9d;
 }	
 
-/*.indent {
+/*
+.select-wrapper__val::after{
+    content: url('../images/unit-switcher.png');
+    margin-left: 6px;
+}
+*/
+
+/*
+.removeBorder {
+    outline: none;
+}
+
+.indent {
 	text-align: right;
 }*/
