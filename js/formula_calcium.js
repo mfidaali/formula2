@@ -30,21 +30,21 @@ window.onload=function(){
 }
 
 function changePlaceholderCal(){
-    if(selCalciumUnit.value=="2"){
-	arrayInputObj[0].placeholder = "Norm: 9-10.5";
+    if(selCalciumUnit.value=="mg"){
+	arrayInputObj[0].placeholder = "Norm: 9 - 10.5";
     }
     else{
-	arrayInputObj[0].placeholder = "Norm: 2.25-2.625";	
+	arrayInputObj[0].placeholder = "Norm: 2.25 - 2.625";	
     }
 }
 
 
 function changePlaceholderAlb(){
-    if(selAlbuminUnit.value=="2"){
-	arrayInputObj[1].placeholder = "Norm: 3.5-5.5";
+    if(selAlbuminUnit.value=="dL"){
+	arrayInputObj[1].placeholder = "Norm: 3.5 - 5.5";
     }
     else{
-	arrayInputObj[1].placeholder = "Norm: 35-55";	
+	arrayInputObj[1].placeholder = "Norm: 35 - 55";	
     }
 }
 
@@ -56,7 +56,7 @@ function calculateFormula(arrayInput, arrayOutput){
 
     //Calculate
     var realAlbumin;
-    if (selAlbuminUnit.value=="1"){
+    if (selAlbuminUnit.value=="L"){
 	realAlbumin= 0.025*arrayInput[1];
     }
     else{
@@ -64,7 +64,7 @@ function calculateFormula(arrayInput, arrayOutput){
     }	
     arrayOutput[0].value = arrayInput[0]-realAlbumin + 1;
     
-    if(selCalciumUnit.value=="1"){
+    if(selCalciumUnit.value=="mmol"){
 	document.getElementById("Corrected-calcium-units").innerHTML = " mmol/L";
     }
     else{

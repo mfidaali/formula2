@@ -51,11 +51,24 @@
 		<div class="col-sm-3 col-md-2 sidebar">
 		    <ul class="nav nav-sidebar">
 			<li><a href="../index.html">Overview <span class="sr-only">(current)</span></a></li>
-			<li class="active"><a href="calcium.html">Calcium</a></li>
+			<li class="active"><a href="../views/calcium.html">Calcium</a></li>
 			<li><a href="../views/bmi.html">BMI</a></li>
 			<li><a href="../views/wells_score.html">Wells Score</a></li>
+			<li><a href="../views/opioid.html">Opioid</a></li>
+			<li><a href="../views/qtzeit.html">QT Zeit</a></li>
+			<li><a href="../views/aniongap.html">Anion Gap</a></li>
+			<li><a href="../views/bicarbonate.html">Bicarbonate</a></li>
+			<li><a href="../views/chads2_score.html">CHADS2 Score</a></li>
+			<li><a href="../views/has_bled_score.html">HAS-BLED Score</a></li>
+			<li><a href="../views/child_pugh_kriterien.html">Child-Pugh Score</a></li>
+			<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Kreatinin Clearance<span class="caret"></span></a>    
+			    <ul class="dropdown-menu">
+				<li><a href="../views/mdrd.html">MDRD</a></li>
+				<li><a href="../views/ckd.html">CKD-EPI</a></li>
+				<li><a href="../views/counahan.html">Counahan</a></li>
+			    </ul>
+			</li>
 		    </ul>
-		    
 		</div>
 		
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -66,23 +79,18 @@
 			    <form method="POST" id="calciumFormula">
 				<label for="calcium">Calcium [Serum]:</label> 
 				<input type="text" name="formulaObj" id="Calcium Input" placeholder="Norm: 2.25 - 2.625">
-				<span class="select-wrapper">
-				    <span class="select-wrapper__val"></span>
-				    <select id="select-calcium-units">
-					<option selected value="1">mmol/L</option>
-					<option value="2">mg/dL</option>
-				    </select>
-				</span><br>
+				<select id="select-calcium-units">
+				    <option selected value="mmol">mmol/L</option>
+				    <option value="mg">mg/dL</option>
+				</select><br>
 				
 				<label for="albumin">Albumin [Serum]:</label> 
 				<input type="text" name="formulaObj" id="Albumin Input" placeholder="Norm: 35 - 55">
-				<span class="select-wrapper">
-				    <span class="select-wrapper__val"></span>
-				    <select id="select-albumin-units">
-					<option selected value="1">g/L</option>
-					<option value="2">g/dL</option>
-				    </select>
-				</span><br>
+				<select id="select-albumin-units">
+				    <option selected value="L">g/L</option>
+				    <option value="dL">g/dL</option>
+				</select>
+				<br>
 				
 				<button id="btnCalc" >Berechnen</button>
 				<button id="btnReset">Zurücksetzen</button><br>

@@ -21,7 +21,7 @@
 	<link href="../css/dashboard.css" rel="stylesheet">
 
 	<link href="../css/formula.css" rel="stylesheet">
-
+	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -42,7 +42,7 @@
 		    </button>
 		    <a class="navbar-brand" href="#">Formula Page</a>
 		</div>
-
+		
 	    </div>
 	</nav>
 
@@ -52,11 +52,11 @@
 		    <ul class="nav nav-sidebar">
 			<li><a href="../index.html">Overview <span class="sr-only">(current)</span></a></li>
 			<li><a href="../views/calcium.html">Calcium</a></li>
-			<li class="active"><a href="../views/bmi.html">BMI</a></li>
+			<li><a href="../views/bmi.html">BMI</a></li>
 			<li><a href="../views/wells_score.html">Wells Score</a></li>
 			<li><a href="../views/opioid.html">Opioid</a></li>
 			<li><a href="../views/qtzeit.html">QT Zeit</a></li>
-			<li><a href="../views/aniongap.html">Anion Gap</a></li>
+			<li class="active"><a href="../views/aniongap.html">Anion Gap</a></li>
 			<li><a href="../views/bicarbonate.html">Bicarbonate</a></li>
 			<li><a href="../views/chads2_score.html">CHADS2 Score</a></li>
 			<li><a href="../views/has_bled_score.html">HAS-BLED Score</a></li>
@@ -67,49 +67,43 @@
 				<li><a href="../views/ckd.html">CKD-EPI</a></li>
 				<li><a href="../views/counahan.html">Counahan</a></li>
 			    </ul>
-			</li>
-		    </ul>
+			</li>		    </ul>
+		    
 		</div>
-
+		
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		    <h1 class="page-header">Formulas</h1>
 		    <div class="calculated-formulas">
+			<h2>Anion Gap</h2>
 			<span class="formulas">
-			    <form method="POST" id="korperoberflacheUndBMIFormula">
-				<h2>Berechnung der Körperoberfläche und des Body-Mass-Index</h2>
-
-				<label for="Korpergewicht">Geben Sie das Körpergewicht in <span class="bold">kg</span> ein:</label><br>
-				<input type="text" name="formulaObj" id="Körpergewicht Input" placeholder="Körpergewicht Value"><span class="bold">kg</span><br>
-
-				<label for="Korpergrosse">Geben Sie die Körpergröße in <span class="bold">cm</span> ein:</label><br>
-				<input type="text" name="formulaObj" id="Körpergroße Input" placeholder="Körpergröße Value"><span class="bold">cm</span><br>
-
+			    <form method="POST" id="aniongapFormula">
+				<label for="Serum Sodium Level">Serum Sodium Level (Na)</label> 
+				<input type="text" name="formulaObj" id="Sodium" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
+				<label for="Serum Potassium Level">Serum Potassium Level (K)- OPTIONAL</label> 
+				<input type="text" name="formulaObj" id="Potassium" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
+				<label for="Serum Chloride Level">Serum Chloride Level (Cl)</label> 
+				<input type="text" name="formulaObj" id="Chloride" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
+				<label for="Serum Bicarbonate Level">Serum Bicarbonate Level (HCO<sub>3</sub>)</label> 
+				<input type="text" name="formulaObj" id="Bicarbonate" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
+				
 				<button id="btnCalc" >Berechnen</button>
 				<button id="btnReset">Zurücksetzen</button><br>
 				
-				<label for="Korperoberflache_Mosteller">Körperoberfläche:</label>
-				<input type="text" name="formulaFinal" id="Korperoberflache Mosteller"><span class="bold">in m<sup>2</sup> (Mosteller)</span><br>
+				<label for="Anion Gap">Anion Gap</label>
+				<input type="text" name="formulaFinal"><span class="bold">mmol/L</span><br>
+				<p>Normbereich: 7 ± 4 mmol/L (also 3-11 mmol/L) </p>
+
 				
-				<label for="Korperoberflache_Dubois">Körperoberfläche:</label>
-				<input type="text" name="formulaFinal" id="Korperoberflache Dubois"><span class="bold">in m<sup>2</sup> (DuBois u. DuBois)</span><br>
-
-				<label for="Body-Mass-Index">Body-Mass-Index:</label>
-				<input type="text" name="formulaFinal" id="BMI"><span class="bold">in kg/m<sup>2</sup></span></span><br>
-
 				<h3>Formula Used:</h3>
-				<p>Mosteller RD. Simplified calculation of body-surface area:</p>
-				<p><span class="bold">Formel: KOF = Wurzel(Größe<sub>[cm]</sub> &times; Gewicht<sub>[kg]</sub> &divide; 3600)</p></span>
-				<p>DuBois D, DuBois EF. A formula to estimate the approximate surface area if height and weight be known:</p>
-				<p><span class="bold">Formel: KOF = 0,007184 &times; Größe<sub>[cm]</sub><sup>0,725</sup> &times; Gewicht<sub>[kg]</sub><sup>0,425</sup></p></span>			
-				<p>BMI:</p>
-				<p><span class="bold">Formel: = Gewicht<sub>[kg]</sub> &divide; Größe<sub>[m<sup>2</sup>]</sub></p></span>
+				<p>Anion gap = (Na+K) - (Cl + HCO<sub>3</sub>)</p>
 			    </form>
-			</span>
+			</span>	
 		    </div>
+		    
 		</div>
 	    </div>
 	</div>
-	
+
 	<!-- Bootstrap core JavaScript
 	     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
@@ -117,10 +111,12 @@
 	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 	<script src="../js/bootstrap.min.js"></script>
 
-	<script type= "text/javascript" src="../js/formula_helper_script.js"></script>
-	<script type= "text/javascript" src="../js/formula_bmi.js"></script>
+	<script type= "text/javascript" src="../js/formula_helper_script.js"></script>    
+	<script type= "text/javascript" src="../js/formula_aniongap.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
+
+
