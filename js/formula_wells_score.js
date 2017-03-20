@@ -1,14 +1,4 @@
-/*
-  var arrayInputObj = [
-  document.getElementsByName("formulaObj0");
-  document.getElementsByName("formulaObj1");
-  document.getElementsByName("formulaObj2");
-  document.getElementsByName("formulaObj3");
-  document.getElementsByName("formulaObj4");
-  document.getElementsByName("formulaObj5");
-  document.getElementsByName("formulaObj6");
-  ]
-*/
+var $koerpergewichtValue = document.querySelector('#Koerpergewicht-Input'); // ID notation
 
 var arrayInputObj0 = document.getElementsByName("formulaObj0");
 var arrayInputObj1 = document.getElementsByName("formulaObj1");
@@ -32,8 +22,9 @@ var arrayInputObjVal = [
 var arrayOutputObj  = document.getElementsByName("formulaFinal");
 var arrayOutputText = document.getElementById("scoreText");
 
-window.onload=function() {
-    document.getElementById('btnReset').onclick = function(){
+document.addEventListener('DOMContentLoaded', function() {
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
 	//Reset
@@ -46,14 +37,16 @@ window.onload=function() {
 	resetValRadio(arrayInputObj6);
 	resetVal(arrayOutputObj);
 	arrayOutputText.innerHTML = "";
-    }
-    document.getElementById('btnCalc').onclick = function(){
+    });
+							 
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
 	
 	//Calculate Formula
 	calculateFormula(arrayInputObjVal, arrayOutputObj, arrayOutputText);
-    }
+    });
 }
 
 function calculateFormula(arrayInput, arrayOutput, arrayOutputText){ 	

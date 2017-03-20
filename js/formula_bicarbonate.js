@@ -1,29 +1,47 @@
-var arrayInputObj  = document.getElementsByName("formulaObj");
-var arrayOutputObj = document.getElementsByName("formulaFinal");
+var $beValue     = document.querySelector('#BE-Input');
+var $weightValue = document.querySelector('#weight-Input');
+var $outputValue = document.querySelector('#NaHCO');
 
-window.onload=function() {
-	document.getElementById('btnReset').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Reset
-		resetVal(arrayInputObj);
-		resetVal(arrayOutputObj);
-	}
-	document.getElementById('btnCalc').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Check input values and get Number array
-		var arrayInputObjVal = checkValuesAndCreateNumberObj(arrayInputObj);
-		//Calculate Formula
-		calculateFormula(arrayInputObjVal, arrayOutputObj);
-	}
-}
+document.addEventListener('DOMContentLoaded', function() {
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
 
-function calculateFormula(arrayInput, arrayOutput){ 	
+	//Stop form input submission
+	event.preventDefault();
+
+	//Reset inputs and outputs
+	$beValue.value='';
+	$weightValue.value='';
+	$outputValue.value='';
+    });
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
 	
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
+	//Stop form input submission
+	event.preventDefault();
 	
-    //Calculate
-    arrayOutput[0].value = Math.round((arrayInput[0] * arrayInput[1] / 3)*1000)/1000;
+	//Create number obj based on input and make sure it is indeed a number 
+	var beNum= createNumCommaAndPoint($beValue.value);
+	var weightNum= createNumCommaAndPoint($weightValue.value);
+	if(!validateNum($beValue, beNum) || !validateNum($weightValue, weightNum)){ 
+	    return;
+	}
+	
+	//Reset all ouput values before calculating
+	$outputValue.value  = '';	
+	
+	//Calculate Formula, rounded
+	$outputValue.value = calculateFormula(beNum, weightNum);	
+    });
+});
+
+/**
+ * Calcium Formulas
+ * @param  {number} input1 - First parameter should be BE Value
+ * @param {number} input2 - Second parameter should be weight Value
+ * @return {number} Calculated value
+ */
+
+function calculateFormula(input1, input2){ 	
+    return Math.round((input1 * input2 / 3)*1000)/1000;
 }

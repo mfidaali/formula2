@@ -1,38 +1,64 @@
-//Set form inputs or outputs "type=texts" to empty strings
-function resetVal(array) {
-    for (var i=0; i<array.length; i++){
-	array[i].value='';
-    }
-}
+/**
+ * Make sure input can handle comma's used as decimal point, and then make it a Number Object
+ * Important for Germany, in which commas are used to represent decimal values. 
+ * @param  {number|string} input - Input numbers with commas needs to be transformed to numbers with decimal points
+ * @return {number} transformed value
+ */
+function createNumCommaAndPoint(input){
 
-//Set form inputs or outputs "type=radio" to empty strings
-function resetValRadio(array) {
-    for (var i=0; i<array.length; i++){
-	array[i].checked=false;
-    }
-}
-
-//Validate the inputs to make sure they are numbers (not letters, etc) and modify the obj to number value for formula calculation
-function checkValuesAndCreateNumberObj(arrayObj) {
-    var arrayObjVal = [];
-    for (var i=0; i<arrayObj.length; i++){
-	//Handle commas and points for inputted numbers. This is needed because German uses "," to represent decimal values
-	if(arrayObj[i].value.match(/^.*\,/)){
-	    if(arrayObj[i].value.match(/^.*\,.*\..*$/)){
-		arrayObj[i].value=arrayObj[i].value.replace(/\,/g,'');
-	    }
-	    else{
-		arrayObj[i].value=arrayObj[i].value.replace(/\./g,'').replace(',','.');
-		
-	    }
+    //If the number uses a comma (e.g. 1001,01 or 1,001.01)
+    if(input.match(/^.*\,/)){
+	//If the number has a point as decimal indicator after comma, just get rid of comma (e.g. 1,001.01=>1001.01)
+	if(input.match(/^.*\,.*\..*$/)){
+	    input=input.replace(/\,/g,'');
 	}
-	//Make object a "Number"
-	arrayObjVal[i]= new Number(arrayObj[i].value);
-	//Validate numbers 
-	if(isNaN(arrayObjVal[i])){
-	    alert(arrayObj[i].id+' is not a correct value. Please make sure to input a number or decimal');
-	    break;
-	}	
+	//Else transform the comma into a decimal (e.g. 1001,01=>1001.01) 
+	else{
+	    input=input.replace(/\./g,'').replace(',','.');
+	}
     }
-    return arrayObjVal;
-}		
+    return new Number(input);
+}
+
+
+/**
+ * Make sure the input is in fact a number, and not some character like 'a' or empty
+ * @param  {element} element - First parameter should be the element
+ * @param {number|string} value - Second parameter is above element's value
+ * @return {boolean}
+ */
+function validateNum(element, value){
+    if (isNaN(value) || value=='' ) {
+	alert(element.id + ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+	return false;
+    }
+    return true;
+}
+
+
+/**
+ * Make sure the input is in fact a number or empty, and not some character like 'a'
+ * @param  {element} element - First parameter should be the element
+ * @param {number|string} value - Second parameter is above element's value
+ * @return {boolean}
+ */
+function validateNumWithEmptyString(element, value){
+    if (isNaN(value)) {
+	alert(element.id + ' is not an acceptable input. Please make sure to input a number or leave it blank. Please do not input a character');
+	return false;
+    }
+    return true;
+}
+
+
+
+/**
+ * Set inputs or outputs to false (used for radio buttons)
+ * @param  input {value} - Input value to be reset
+ * @return None
+ */
+function resetValToFalse(input) {
+    input=false;
+}
+
+

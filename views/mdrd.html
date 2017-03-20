@@ -78,16 +78,16 @@
 			<span class="formulas">
 			    <form method="POST" id="bicarbonateFormula">
 				<label for="Serum-Kreatinin">S<sub>cr</sub>:</label> 
-				<input type="text" name="formulaObj" id="Serum-Kreatinin" placeholder="Norm: INFO NEEDED"><span class="bold">mg/dL</span><br>
+				<input type="text" id="Serum-Kreatinin-Input" placeholder="Serum Kreatinin Input"><span class="bold">mg/dL</span><br>
 				<label for="Alter">Alter:</label> 
-				<input type="text" name="formulaObj" id="Alter" placeholder="Norm: INFO NEEDED"><span class="bold">Jahre</span><br>
+				<input type="text" id="Alter-Input" placeholder="Alter Input"><span class="bold">Jahre</span><br>
 				
 				
 				<button id="btnCalc" >Berechnen</button>
 				<button id="btnReset">Zurücksetzen</button><br>
 				
 				<label for="eGFR">eGFR</label>
-				<input type="text" name="formulaFinal"><span class="bold">ml/min</span><br>
+				<input type="text" id="eGFR"><span class="bold">ml/min</span><br>
 				
 				<h3>Formula Used:</h3>
 				<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/443dea5bc50d3e2a7e5456ccf7fecab2e7ce31e3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -4.171ex; width:126.781ex; height:9.509ex;" alt="{\displaystyle {\begin{aligned}{\mathit {eGFR}}(\mathrm {ml/min} )&amp;=\\&amp;=186\cdot (S_{Cr})^{-1{,}154}\times ({\text{Alter}})^{-0{,}203}\times (0{,}742{\text{ falls weiblich}})\times (1{,}210{\text{ falls schwarze Hautfarbe}})\\&amp;=\exp(5{,}228-1{,}154\times \ln(S_{Cr})-0{,}203\cdot \ln({\text{Alter}})-(0{,}299{\text{ falls weiblich}})+(0{,}192{\text{ falls schwarze Hautfarbe}}))\end{aligned}}}">

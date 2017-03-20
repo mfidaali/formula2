@@ -78,16 +78,16 @@
 			<span class="formulas">
 			    <form method="POST" id="bicarbonateFormula">
 				<label for="Negative Base Deviation">Negative Base Deviation (-BE):</label> 
-				<input type="text" name="formulaObj" id="BE" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
+				<input type="text" id="BE-Input" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
 				<label for="weight">Weight:</label> 
-				<input type="text" name="formulaObj" id="weight" placeholder="Norm: INFO NEEDED"><span class="bold">kg</span><br>
+				<input type="text" id="weight-Input" placeholder="Norm: INFO NEEDED"><span class="bold">kg</span><br>
 				
 				
 				<button id="btnCalc" >Berechnen</button>
 				<button id="btnReset">Zurücksetzen</button><br>
 				
 				<label for="NaHCO">NaHCO<sub>3</sub></label>
-				<input type="text" name="formulaFinal"><span class="bold">mmol</span><br>
+				<input type="text" id="NaHCO"><span class="bold">mmol</span><br>
 				
 				<h3>Formula Used:</h3>
 				<p><span class="bold">NaHCO<sub>3</sub> = -BE &times KG(kg) &divide 3</span></p>

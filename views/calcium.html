@@ -78,14 +78,14 @@
 			<span class="formulas">
 			    <form method="POST" id="calciumFormula">
 				<label for="calcium">Calcium [Serum]:</label> 
-				<input type="text" name="formulaObj" id="Calcium Input" placeholder="Norm: 2.25 - 2.625">
+				<input type="text" id="Calcium-Input" placeholder="Norm: 2.25 - 2.625">
 				<select id="select-calcium-units">
 				    <option selected value="mmol">mmol/L</option>
 				    <option value="mg">mg/dL</option>
 				</select><br>
 				
 				<label for="albumin">Albumin [Serum]:</label> 
-				<input type="text" name="formulaObj" id="Albumin Input" placeholder="Norm: 35 - 55">
+				<input type="text" id="Albumin-Input" placeholder="Norm: 35 - 55">
 				<select id="select-albumin-units">
 				    <option selected value="L">g/L</option>
 				    <option value="dL">g/dL</option>
@@ -96,7 +96,7 @@
 				<button id="btnReset">Zurücksetzen</button><br>
 				
 				<label for="Korrigiertes Calcium">Korrigiertes Calcium:</label>
-				<input type="text" name="formulaFinal"><span class="bold"><span id="Corrected-calcium-units"></span></span><br>
+				<input type="text" id="Calcium-Output"><span class="bold"><span id="corrected-calcium-units"></span></span><br>
 				
 				<h3>Formula Used:</h3>
 				<p>Calcium<sub>korrigiert</sub>[mmol/l] = Calcium<sub>gemessen</sub>[mmol/l] – (0,025 x Albumin [g/l]) + 1</p>

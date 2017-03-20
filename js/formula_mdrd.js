@@ -1,29 +1,44 @@
-var arrayInputObj  = document.getElementsByName("formulaObj");
-var arrayOutputObj = document.getElementsByName("formulaFinal");
+var $scrValue    = document.querySelector('#Serum-Kreatinin-Input');
+var $alterValue  = document.querySelector('#Alter-Input');
+var $outputValue = document.querySelector("#eGFR");
 
-window.onload=function() {
-	document.getElementById('btnReset').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Reset
-		resetVal(arrayInputObj);
-		resetVal(arrayOutputObj);
+document.addEventListener('DOMContentLoaded', function() {
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
+	//Stop form input submission
+	event.preventDefault();
+	
+	//Reset inputs and outputs
+	$scrValue.value    = '';
+	$alterValue.value  = '';
+	$outputValue.value = '';
+    });
+    
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
+	//Stop form input submission
+	event.preventDefault();
+	
+	//Create number obj based on input and make sure it is indeed a number 
+	var scrNum= createNumCommaAndPoint($scrValue.value);
+	var alterNum= createNumCommaAndPoint($alterValue.value);
+	if(!validateNum($scrValue, scrNum) || !validateNum($alterValue, alterNum)){ 
+	    return;
 	}
-	document.getElementById('btnCalc').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Check input values and get Number array
-		var arrayInputObjVal = checkValuesAndCreateNumberObj(arrayInputObj);
-		//Calculate Formula
-		calculateFormula(arrayInputObjVal, arrayOutputObj);
-	}
-}
+	//Reset all ouput values before calculating
+	$outputValue.value = '';
 
-function calculateFormula(arrayInput, arrayOutput){ 	
-	
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
-	
-    //Calculate
-    arrayOutput[0].value = Math.round((Math.exp(5228-(1154*Math.log(arrayInput[0])) - (0.203* Math.log(arrayInput[1])) - 0.299 + 0.192))*1000)/1000;
+	//Calculate Formula, rounded
+	$outputValue.value = calculateFormula(scrNum, alterNum);	
+
+    });
+});
+
+/**
+ * Calcium Formulas
+ * @param  {number} input1 - First parameter should be scr Value
+ * @param {number} input2 - Second parameter should be alter Value
+ * @return {number} Calculated value
+ */	
+function calculateFormula(input1, input2){ 	
+    return Math.round((Math.exp(5228-(1154*Math.log(input1)) - (0.203* Math.log(input2)) - 0.299 + 0.192))*1000)/1000;
 }

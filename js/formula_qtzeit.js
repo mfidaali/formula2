@@ -1,29 +1,45 @@
-var arrayInputObj  = document.getElementsByName("formulaObj");
-var arrayOutputObj = document.getElementsByName("formulaFinal");
+var $QTValue        = document.querySelector('#QT-Input'); // ID notation
+var $RRValue        = document.querySelector('#RR-Input'); 
+var $outputQTValue  = document.querySelector('#QT-Output'); 
 
-window.onload=function() {
-	document.getElementById('btnReset').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Reset
-		resetVal(arrayInputObj);
-		resetVal(arrayOutputObj);
-	}
-	document.getElementById('btnCalc').onclick = function(){
-		//Stop form input submission
-		event.preventDefault();
-		//Check input values and get Number array
-		var arrayInputObjVal = checkValuesAndCreateNumberObj(arrayInputObj);
-		//Calculate Formula
-		calculateFormula(arrayInputObjVal, arrayOutputObj);
-	}
-}
+document.addEventListener('DOMContentLoaded', function() {
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
+	//Stop form input submission
+	event.preventDefault();
 
-function calculateFormula(arrayInput, arrayOutput){ 	
+	//Reset inputs and outputs
+	$QTValue.value = '';
+	$RRValue.value = '';
+	$outputQTValue.value = '';	
+    });
+    
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
+	//Stop form input submission
+	event.preventDefault();
+
+	//Create number obj based on input and make sure it is indeed a number 
+	var qtNum= createNumCommaAndPoint($QTValue.value);
+	var rrNum= createNumCommaAndPoint($RRValue.value);
+	if(!validateNum($QTValue, qtNum) || !validateNum($RRValue, rrNum)){ 
+	    return;
+	}
+	//Reset all ouput values before calculating
+	$outputQTValue.value = '';
+
+	//Calculate Formula, rounded
+	$outputQTValue.value = calculateFormula(qtNum, rrNum);	
 	
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
-	
-    //Calculate, with rounding
-    arrayOutput[0].value = Math.round((arrayInput[0]/Math.sqrt(arrayInput[1])) * 10000)/10000;
+    });
+});
+
+/**
+ * Calcium Formulas
+ * @param  {number} input1 - First parameter should be QT Value
+ * @param {number} input2 - Second parameter should be RR Value
+ * @return {number} Calculated value
+ */			  
+function calculateFormula(input1, input2){ 	
+    return Math.round((input1/Math.sqrt(input2)) * 10000)/10000;
 }
