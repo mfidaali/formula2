@@ -1,14 +1,11 @@
-//var arrayInputObj  = document.getElementsByName("formulaObj");
-//var arrayOutputObj = document.getElementsByName("formulaFinal");
-var selDrugCurr    = document.getElementById("select-drug-current");
-var selDrugCurrType= document.getElementById("select-drug-current-type");
-var selDrugNew     = document.getElementById("select-drug-new");
-var selDrugNewType = document.getElementById("select-drug-new-type");
-var in_dosis       = document.getElementsByName("input_dosis");
-var out_dosis      = document.getElementsByName("output_dosis");
+var $drugCurrSelect     = document.querySelector("#select-drug-current");
+var $drugCurrTypeSelect = document.querySelector("#select-drug-current-type");
+var $drugNewSelect      = document.querySelector("#select-drug-new");
+var $drugNewTypeSelect  = document.querySelector("#select-drug-new-type");
+var $inputDosisValue    = document.querySelector("#Input-Dosis");
+var $outputDosisValue   = document.querySelector("#Output-Dosis");
+
 //var einheit        = document.getElementsByName("einheit");
-var factorCurr;
-var factorNew;
 
 var drugAndTypeFactorHash = {
     "tramadol_or": 15,
@@ -34,7 +31,6 @@ var drugAndTypeFactorHash = {
 
 function drugAndType(drugCurr, drugNew, typeCurr, typeNew, dosage){
 
-    resetVal(out_dosis);
 
     var currDrugType= drugCurr.value+'_'+typeCurr.value;
     var newDrugType = drugNew.value+'_'+typeNew.value;
@@ -55,63 +51,86 @@ function drugAndType(drugCurr, drugNew, typeCurr, typeNew, dosage){
     out_dosis[0].value= dosage[0]*factorNew/factorCurr;
 }
 
-
-//function linkDrugAndType(drug, type){
-//    var options= new Array();
-//    (drug.style || drug).visibility= "visible";
-//    for (var i=0; i < type.options.length; i++) {
-// 	/* Save text and value of original options */
-// 	options[i] = new Array(type.options[i].text,type.options[i].value);
-//    }
-// 
-//}
-
-window.onload=function(){
-
-    document.getElementById('btnReset').onclick = function(){
+document.addEventListener('DOMContentLoaded', function() {
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
-	//Reset
-	//resetVal(selDrugCurr);
-	//resetVal(selDrugCurrType);
-	//resetVal(selDrugNew);
-	//resetVal(selDrugNewType);
-	var elements = document.getElementsByTagName('select');
-	for (var i=0; i < elements.length; i++){
-	    elements[i].selectedIndex=0;
-	}	    
-	resetVal(in_dosis);
-	resetVal(out_dosis);
-	//resetVal(einheit);
-    }
-    document.getElementById('btnCalc').onclick = function(){
+
+	//Reset selects, inputs, and outputs
+	
+	//var elements = document.getElementsByTagName('select');
+	//for (var i=0; i < elements.length; i++){
+	//    elements[i].selectedIndex=0;
+	//}
+	
+	$drugCurrSelect.selectedIndex     = 0;
+	$drugCurrTypeSelect.selectedIndex = 0;
+	$drugNewSelect.selectedIndex      = 0;
+	$drugNewTypeSelect.selectedIndex  = 0;
+	$inputDosisValue.value        	  = '';
+	$outputDosisValue.value           = '';
+	
+    });
+							 
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
+
 	//Stop form input submission
 	event.preventDefault();
-	//Check input values and get Number array
-	var arrayInputObjVal = checkValuesAndCreateNumberObj(in_dosis);
+	
+	//Create number obj based on input and make sure it is indeed a number 
+	var inputDosisNum  = createNumCommaAndPoint($inputDosisValue.value);
+	if(!validateNum($inputDosisValue, inputDosisNum)){ 
+	    return;
+	}
+
+	var currDrugType= $drugCurrSelect.value + '_' + $drugCurrTypeSelect.value;
+	var newDrugType = $drugNewSelect.value  + '_' + $drugNewTypeSelect.value;
+
+	var factorCurr;
+	var factorNew;
+
+	//Grab factor associated with Drug and Type using hash information	
+	if (currDrugType in drugAndTypeFactorHash){
+	    factorCurr= drugAndTypeFactorHash[currDrugType];
+	}
+	else{
+	    alert("This combination of Bisheriges Opioid Arzneistoff and Application does not exist");
+	    return;
+	}
+	
+	if (newDrugType in drugAndTypeFactorHash){
+	    factorNew= drugAndTypeFactorHash[newDrugType];
+	}
+	else{
+	    alert("This combination of Neues Opioid Arzneistoff and Application does not exist");
+	    return;
+	}
+	
+	
+
+	//Reset all ouput values before calculating
+	$outputDosisValue.value = '';	
+
 	//Calculate Formula
-	drugAndType(selDrugCurr, selDrugNew, selDrugCurrType, selDrugNewType, arrayInputObjVal);
-	//calculateFormula(arrayInputObjVal, arrayOutputObj);
-    }
+	$outputDosisValue.value = calculateFormula(inputDosisNum, factorNew, factorCurr);
+
+	//drugAndType(selDrugCurr, selDrugNew, selDrugCurrType, selDrugNewType, arrayInputObjVal);
+	//out_dosis[0].value= dosage[0]*factorNew/factorCurr;
+    });
+});
+
+/**
+ * Calcium Formulas
+ * @param  {number} input1 - First  parameter should be  Value
+ * @param  {number} input2 - Second parameter should be  Value
+ * @param  {number} input3 - Third  parameter should be  Value
+ * @return {number} Calculated value
+ */
+function calculateFormula(input1, input2, input3){ 	
+    return input1*input2/input3;
 }
-
-
-function calculateFormula(arrayInput, arrayOutput){
-
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
-    
-    //Calculate
-    newDosis.value=""; 
-
-    //if(selCalciumUnit.value=="mmol/L"){
-    // 	document.getElementById("Corrected-calcium-units").innerHTML = " mmol/L";
-    //}
-    //else{
-    // 	document.getElementById("Corrected-calcium-units").innerHTML = " mg/dL";
-    //}
-}
-
 
 
 //var drugAndTypeFactorHash = {
@@ -176,3 +195,15 @@ function calculateFormula(arrayInput, arrayOutput){
 // drug[][0]=  new Array('Select a method');
 // drug[][1]=  new Array('sl');
 // drug[][1]=  new Array('TDS');
+
+
+
+//function linkDrugAndType(drug, type){
+//    var options= new Array();
+//    (drug.style || drug).visibility= "visible";
+//    for (var i=0; i < type.options.length; i++) {
+// 	/* Save text and value of original options */
+// 	options[i] = new Array(type.options[i].text,type.options[i].value);
+//    }
+// 
+//}

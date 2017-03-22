@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Calculate Formula
 	calculateFormula(arrayInputObjVal, arrayOutputObj, arrayOutputText);
     });
-}
+});
 
 function calculateFormula(arrayInput, arrayOutput, arrayOutputText){ 	
 
