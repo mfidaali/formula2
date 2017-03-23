@@ -10,10 +10,10 @@ var port = process.env.PORT || 9002;
 var app = express();
 
 app.use(compression());
-app.use(express.static(path.resolve(__dirname)));
+app.use(express.static(path.resolve(__dirname, 'app')));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, './index.html'));
+  res.sendFile(path.resolve(__dirname, './app/index.html'));
 });
 
 app.listen(port, function(err) {
