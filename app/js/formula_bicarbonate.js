@@ -43,5 +43,5 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 
 function calculateFormula(input1, input2){ 	
-    return Math.round((input1 * input2 / 3)*1000)/1000;
+    return Math.round((input1 * input2 * 0.3)*1000)/1000;
 }
