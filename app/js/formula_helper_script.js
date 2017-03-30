@@ -52,13 +52,3 @@ function validateNumWithEmptyString(element, value){
 
 
 
-/**
- * Set inputs or outputs to false (used for radio buttons)
- * @param  input {value} - Input value to be reset
- * @return None
- */
-function resetValToFalse(input) {
-    input=false;
-}
-
-

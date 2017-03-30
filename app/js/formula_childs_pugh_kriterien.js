@@ -1,125 +1,102 @@
-/*
-  var arrayInputObj = [
-  document.getElementsByName("formulaObj0");
-  document.getElementsByName("formulaObj1");
-  document.getElementsByName("formulaObj2");
-  document.getElementsByName("formulaObj3");
-  document.getElementsByName("formulaObj4");
-  document.getElementsByName("formulaObj5");
-  document.getElementsByName("formulaObj6");
-  ]
-*/
+document.addEventListener('DOMContentLoaded', function() {
 
-var arrayInputObj0 = document.getElementsByName("formulaObj0");
-var arrayInputObj1 = document.getElementsByName("formulaObj1");
-var arrayInputObj2 = document.getElementsByName("formulaObj2");
-var arrayInputObj3 = document.getElementsByName("formulaObj3");
-var arrayInputObj4 = document.getElementsByName("formulaObj4");
-
-var arrayInputObjVal = [
-    arrayInputObj0,
-    arrayInputObj1, 
-    arrayInputObj2, 
-    arrayInputObj3, 
-    arrayInputObj4, 
+    //Global Variables
+    var questionStrings = ['Serumalbumin',
+			   'Bilirubin',
+			   'INR',
+			   'Aszites',
+			   'Enzephalopathie'];
     
-];
+    var arrayOfHashQuestions=[];
+    for (var i=0; i<questionStrings.length; i++){
+	var hash= {
+	    "1": document.querySelector('#'+questionStrings[i]+'-1'),
+	    "2": document.querySelector('#'+questionStrings[i]+'-2'),
+	    "3": document.querySelector('#'+questionStrings[i]+'-3')
+	};
+	arrayOfHashQuestions.push(hash);
+    }
+    
+    var $outputValue = document.querySelector('#Final-Score');
+    var $outputText  = document.querySelector('#Final-Score-Text');
 
-var arrayOutputObj  = document.getElementsByName("formulaFinal");
-var arrayOutputText = document.getElementById("scoreText");
 
-window.onload=function() {
-    document.getElementById('btnReset').onclick = function(){
+
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
-	//Reset
-	resetValRadio(arrayInputObj0);
-	resetValRadio(arrayInputObj1);
-	resetValRadio(arrayInputObj2);
-	resetValRadio(arrayInputObj3);
-	resetValRadio(arrayInputObj4);
-	resetVal(arrayOutputObj);
-	arrayOutputText.innerHTML = "";
-    }
-    document.getElementById('btnCalc').onclick = function(){
+
+	//Reset radio buttons and outputs
+	for (var x=0; x<arrayOfHashQuestions.length; x++){
+	    arrayOfHashQuestions[x]['1'].checked=false;
+	    arrayOfHashQuestions[x]['2'].checked=false;
+	    arrayOfHashQuestions[x]['3'].checked=false;
+	    
+	}	
+	$outputValue.value  = '';
+	$outputText.innerHTML = "";
+    });
+							 
+
+
+
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
-	
-	//Calculate Formula
-	calculateFormula(arrayInputObjVal, arrayOutputObj, arrayOutputText);
-    }
-}
 
-function calculateFormula(arrayInput, arrayOutput, arrayOutputText){ 	
+	//Reset all ouput values before calculating
+	$outputValue.value  = '';
+	$outputText.innerHTML = "";
 
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
-    arrayOutputText.innerHTML = "";
-   
-    
-    //Calculate
-    var totalScore= new Number(0);
-    for(var i=0; i<arrayInput.length; i++){
-	if (arrayInput[i][0].checked==false && arrayInput[i][1].checked==false && arrayInput[i][2].checked==false){
-	    alert(arrayInput[i][0].id+' or '+arrayInput[i][1].id+' or '+arrayInput[i][2].id+' has not been checked. One of them must be checked');
-	    break;
-	}
-	else{
-	    for(var x=0; x<arrayInput[i].length; x++){
-		if (arrayInput[i][x].checked==true){
-		    totalScore+= new Number(arrayInput[i][x].value);
+	//Add up all the "checked" radio values and create a "totalScore"
+	var totalScore= new Number(0);
+
+	for (var x=0; x<arrayOfHashQuestions.length; x++){
+	    var flag=0;
+	    for (var y=1; y<4; y++){
+		if (arrayOfHashQuestions[x][y].checked==true){
+		    totalScore += new Number(arrayOfHashQuestions[x][y].value);
+		    flag=1;
 		}
 	    }
+	    //Check to see if any radio button sets have not been selected and if so, throw an alert
+	    if (flag==0){
+		alert(arrayOfHashQuestions[x][1].id+' or '+arrayOfHashQuestions[x][2].id+' or '+arrayOfHashQuestions[x][3].id+' has not been checked. One of them must be checked');
+		return;
+	    }
 	}
-    }
-    arrayOutput[0].value = totalScore;
-
-    //Set variables
-    var child;
-    var punktanzahl;
-    var uberlebensrate;
-        
-    if((arrayOutput[0].value==5) || (arrayOutput[0].value==6)){
-     	child = "Child A";
-	punktanzahl = "5-6";
-	uberlebensrate = "ca. 100%";
-    }
-    else if((arrayOutput[0].value>6) &&  (arrayOutput[0].value<10)){
-	child = "Child B";
-	punktanzahl = "7-9";
-	uberlebensrate = "ca. 85%";
-    }
-    else {
-	child = "Child C";
-	punktanzahl = "10-15";
-	uberlebensrate = "ca. 35%";
-    }
-
-
-    
-    //Print Outputs
-    arrayOutputText.innerHTML = "Stadium: "+child+"<br>Punktanzahl: "+punktanzahl+"<br>Ueberlebensrate: "+uberlebensrate;
 	
-    
-    //if((arrayOutput[0].value==5) || (arrayOutput[0].value==6)){
-    // 	arrayOutputText.innerHTML = ;
-    //}
-    //else if(arrayOutput[0].value == 1){
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 2.8% risk of event per year if no coumadin.<br>" + ending;
-    //}
-    //else if(arrayOutput[0].value == 2){
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 4.0% risk of event per year if no coumadin.<br>" + ending;
-    //}
-    //else if(arrayOutput[0].value == 3){
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 5.9% risk of event per year if no coumadin.<br>" + ending;
-    //}
-    //else if(arrayOutput[0].value == 4){
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 8.5% risk of event per year if no coumadin.<br>" + ending;
-    //}    
-    //else if(arrayOutput[0].value == 5){
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 12.5% risk of event per year if no coumadin.<br>" + ending;
-    //}
-    //else
-    // 	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 18.2% risk of event per year if no coumadin.<br>" + ending;
-}
+	//Output calculated value 
+	$outputValue.value = totalScore;
+	
+	//Set variables for printing
+	var child;
+	var punktanzahl;
+	var uberlebensrate;
+        
+	if(($outputValue.value==5) || ($outputValue.value==6)){
+     	    child = "Child A";
+	    punktanzahl = "5-6";
+	    uberlebensrate = "ca. 100%";
+	}
+	else if(($outputValue.value>6) &&  ($outputValue.value<10)){
+	    child = "Child B";
+	    punktanzahl = "7-9";
+	    uberlebensrate = "ca. 85%";
+	}
+	else {
+	    child = "Child C";
+	    punktanzahl = "10-15";
+	    uberlebensrate = "ca. 35%";
+	}
+	
+	//Print associated output text
+	$outputText.innerHTML = "Stadium: "+child+"<br>Punktanzahl: "+punktanzahl+"<br>Ueberlebensrate: "+uberlebensrate;
+		
+    });
+});
+
+   
 

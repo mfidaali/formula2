@@ -5,22 +5,48 @@ var $calciumUnitSelect = document.querySelector("#select-calcium-units"); // ID 
 var $albuminUnitSelect = document.querySelector("#select-albumin-units"); // ID notation
 var $outputFinalUnits  = document.querySelector("#corrected-calcium-units"); // ID notation
 
+
 var selectPlaceholdersHash = {
     "mmol": "Norm: 2.20 - 2.65",
-    "mg"  : "Norm: 8.8 - 10.6",
+    "mg"  : "Norm: 8.80 - 10.60",
     "L"   : "Norm: 35 - 50",
-    "dL"  : "Norm: 3.5 - 5.5"
+    "dL"  : "Norm: 3.5 - 5.0"
 };
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    //Change placeholders based on selected units
-    $calciumUnitSelect.addEventListener('change', function() {
-    	$calciumValue.placeholder = selectPlaceholdersHash[$calciumUnitSelect.value];
-    });
+    var initialCalciumSelectValue = $calciumUnitSelect.value; 
+    var initialAlbuminSelectValue = $albuminUnitSelect.value;
     
+    //Change placeholders and inputted values based on selected calcium units
+    $calciumUnitSelect.addEventListener('change', function() {
+	var calciumNum= createNumCommaAndPoint($calciumValue.value);
+    	$calciumValue.placeholder = selectPlaceholdersHash[$calciumUnitSelect.value];
+	if(!isNaN(calciumNum)){
+	    if(initialCalciumSelectValue=="mmol"){
+		$calciumValue.value= $calciumValue.value * 4;
+	    }
+	    else{
+		$calciumValue.value= $calciumValue.value / 4;
+	    }
+	}
+	initialCalciumSelectValue = $calciumUnitSelect.value;
+    });
+
+    //Change placeholders and inputted values based on selected albumin units
     $albuminUnitSelect.addEventListener('change',function(){
+	var albuminNum= createNumCommaAndPoint($albuminValue.value);
 	$albuminValue.placeholder = selectPlaceholdersHash[$albuminUnitSelect.value];
+	if(!isNaN(albuminNum)){
+	    if(initialAlbuminSelectValue=="L"){
+		$albuminValue.value= $albuminValue.value / 10;
+	    }
+	    else{
+		$albuminValue.value= $albuminValue.value * 10;
+	    }
+	}
+	initialAlbuminSelectValue = $albuminUnitSelect.value;
     });
     
     
@@ -44,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	event.preventDefault();
 	
 	//Create number obj based on input and make sure it is indeed a number 
-	var calciumNum= createNumCommaAndPoint($calciumValue.value);
-	var albuminNum= createNumCommaAndPoint($albuminValue.value);
+ 	var calciumNum= createNumCommaAndPoint($calciumValue.value);
+ 	var albuminNum= createNumCommaAndPoint($albuminValue.value);
 	if(!validateNum($calciumValue, calciumNum) || !validateNum($albuminValue, albuminNum)){ 
 	    return;
 	}
@@ -63,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	//Display correct units based on $calciumUnitSelect
 	if($calciumUnitSelect.value=="mmol"){
-	    $outputFinalUnits.innerHTML = " mmol/L";
+	    $outputFinalUnits.innerHTML = "mmol/L";
 	}
 	else{
-	    $outputFinalUnits.innerHTML = " mg/dL";
+	    $outputFinalUnits.innerHTML = "mg/dL";
 	}	
     });
 });
@@ -84,4 +110,17 @@ function calculateFormulaL(input1, input2){
 
 function calculateFormulaDL(input1, input2){ 	
     return input1 - 0.25*input2 + 1;	    
+}
+
+if (typeof exports === 'object' && typeof exports.nodeName !== 'string' && typeof define !== 'function') {
+    var define = function (factory) {
+	factory(require, exports, module);
+    };
+ 
+    define(function (require, exports, module) {
+	// Only attach properties to the exports object to define
+	// the module's properties.
+	exports.calculateFormulaL  = calculateFormulaL;
+	exports.calculateFormulaDL = calculateFormulaDL;
+    });
 }

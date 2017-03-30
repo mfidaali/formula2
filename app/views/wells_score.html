@@ -69,6 +69,8 @@
 				<li><a href="../views/counahan.html">Counahan</a></li>
 			    </ul>
 			</li>
+			<li><a href="../views/aciclovir.html">Aciclovir Ratiopharm</a></li>
+
 		    </ul>
 		</div>
 
@@ -91,45 +93,44 @@
 					    <tr>
 						<td>Q1: Klinische Zeichen oder Symptome einer tiefen Beinvenenthrombose (mindestens Schwellung eines Beines und Schmerzen bei der Palpation der tiefliegenden Venen</td>
 						<td>3</td>
-						<td>
-						    <input type="radio" name="formulaObj0" id="Q1 Yes" value="3">Ja<br>
-						    <input type="radio" name="formulaObj0" id="Q1 No" value="0">Nein</td>
+						<td><input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-Yes" value="3">Ja<br>
+						    <input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-No" value="0">Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q2: eine andere Diagose ist weniger wahrscheinlicher als eine Lungenembolie</td>
 						<td>3</td>
-						<td><input type="radio" name="formulaObj1" id="Q2 Yes" value="3" >Ja<br>
-						    <input type="radio" name="formulaObj1" id="Q2 No" value="0" >Nein</td>
+						<td><input type="radio" name="Lungenembolie" id="Lungenembolie-Yes" value="3" >Ja<br>
+						    <input type="radio" name="Lungenembolie" id="Lungenembolie-No" value="0" >Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q3: Herzfrequenz > 100</td>
 						<td>1,5</td>
-						<td><input type="radio" name="formulaObj2" id="Q3 Yes" value="1.5">Ja<br>
-						    <input type="radio" name="formulaObj2" id="Q3 No" value="0"  >Nein</td>
+						<td><input type="radio" name="Herzfrequenz" id="Herzfrequenz-Yes" value="1.5">Ja<br>
+						    <input type="radio" name="Herzfrequenz" id="Herzfrequenz-No" value="0"  >Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q4: Immobilisierung oder chirurgischer Eingriff in den vergangen vier Wochen</td>
 						<td>1,5</td>
-						<td><input type="radio" name="formulaObj3" id="Q4 Yes" value="1.5" >Ja<br>
-						    <input type="radio" name="formulaObj3" id="Q4 No" value="0"   >Nein</td>
+						<td><input type="radio" name="Immobilisierung" id="Immobilisierung-Yes" value="1.5" >Ja<br>
+						    <input type="radio" name="Immobilisierung" id="Immobilisierung-No" value="0"   >Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q5: vorangegangene tiefe Beinvenenthrombose / Lungenembolie</td>
 						<td>1,5</td>
-						<td><input type="radio" name="formulaObj4" id="Q5 Yes" value="1.5" >Ja<br>
-						    <input type="radio" name="formulaObj4" id="Q5 No" value="0"   >Nein</td>
+						<td><input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-Yes" value="1.5" >Ja<br>
+						    <input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-No" value="0"	 >Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q6: Bluthusten</td>
 						<td>1</td>
-						<td><input type="radio" name="formulaObj5" id="Q6 Yes" value="1" >Ja<br>
-						    <input type="radio" name="formulaObj5" id="Q6 No" value="0" >Nein</td>
+						<td><input type="radio" name="Bluthusten" id="Bluthusten-Yes" value="1" >Ja<br>
+						    <input type="radio" name="Bluthusten" id="Bluthusten-No" value="0" >Nein</td>
 					    </tr>
 					    <tr>
 						<td>Q7: Tumorerkrankung (unter Therapie, nach Therapie innerhalb der letzten 6 Monate oder Palliativtherapie)</td>
 						<td>1</td>
-						<td><input type="radio" name="formulaObj6" id="Q7 Yes" value="1" >Ja<br>
-						    <input type="radio" name="formulaObj6" id="Q7 No" value="0" >Nein</td>
+						<td><input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-Yes" value="1" >Ja<br>
+						    <input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-No" value="0" >Nein</td>
 					    </tr>
 					    <tr>
 						<td><button id="btnCalc" >Berechnen</button>
@@ -139,13 +140,11 @@
 					    </tr>
 					    <tr>
 						<td>SCORE (Punktzahl):</td>
-						<td><input type="text" name="formulaFinal" id="score"></td>
+						<td><input type="text" id="Final-Score"></td>
 						<td></td>
 					    </tr>
 					    <tr>
-						<!--  <td>INFO:</td> -->
-						<!--  <td><span class="removeBorder" <input type="text" name="formulaFinal" id="scoreText"></td></span>  -->
-						<td><p id="scoreText"></p></td>
+						<td><p id="Final-Score-Text"></p></td>
 						<td></td>
 						<td></td>
 					    </tr>

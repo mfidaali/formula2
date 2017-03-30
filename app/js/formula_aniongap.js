@@ -3,6 +3,12 @@ var $potassiumValue   = document.querySelector('#Potassium-Input');
 var $chlorideValue    = document.querySelector('#Chloride-Input');
 var $bicarbonateValue = document.querySelector('#Bicarbonate-Input');
 var $outputValue      = document.querySelector('#Anion');
+var $normbereichValue = document.querySelector('#Normbereich');
+
+var normbereichHash = {
+    "with_potassium"     : "16 \xB1 4 mmol/L",
+    "without_potassium"  : "11 \xB1 4 mmol/L"
+};
 
 document.addEventListener('DOMContentLoaded', function() {
     //Reset button
@@ -17,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$chlorideValue.value='';
 	$bicarbonateValue.value='';
 	$outputValue.value='';
+	$normbereichValue.value  = '';	
     });
     
     //Calculate button
@@ -36,9 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	//Reset all ouput values before calculating
 	$outputValue.value  = '';	
+	$normbereichValue.value  = '';	
 	
 	//Calculate Formula
-	$outputValue.value = calculateFormula(sodiumNum, potassiumNum, chlorideNum, bicarbonateNum);	
+	$outputValue.value = calculateFormula(sodiumNum, potassiumNum, chlorideNum, bicarbonateNum);
+
+	if (potassiumNum != "" && potassiumNum != '0'){
+	    $normbereichValue.value = normbereichHash['with_potassium'];	
+	}
+	else{	    
+	    $normbereichValue.value = normbereichHash['without_potassium'];	
+	}
+	    
     });
 });
 

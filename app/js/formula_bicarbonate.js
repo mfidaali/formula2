@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	event.preventDefault();
 	
 	//Create number obj based on input and make sure it is indeed a number 
-	var beNum= createNumCommaAndPoint($beValue.value);
-	var weightNum= createNumCommaAndPoint($weightValue.value);
+	var beNum     = createNumCommaAndPoint($beValue.value);
+	var weightNum = createNumCommaAndPoint($weightValue.value);
 	if(!validateNum($beValue, beNum) || !validateNum($weightValue, weightNum)){ 
 	    return;
 	}

@@ -1,104 +1,93 @@
-/*
-  var arrayInputObj = [
-  document.getElementsByName("formulaObj0");
-  document.getElementsByName("formulaObj1");
-  document.getElementsByName("formulaObj2");
-  document.getElementsByName("formulaObj3");
-  document.getElementsByName("formulaObj4");
-  document.getElementsByName("formulaObj5");
-  document.getElementsByName("formulaObj6");
-  ]
-*/
+document.addEventListener('DOMContentLoaded', function() {
 
-var arrayInputObj0 = document.getElementsByName("formulaObj0");
-var arrayInputObj1 = document.getElementsByName("formulaObj1");
-var arrayInputObj2 = document.getElementsByName("formulaObj2");
-var arrayInputObj3 = document.getElementsByName("formulaObj3");
-var arrayInputObj4 = document.getElementsByName("formulaObj4");
-
-var arrayInputObjVal = [
-    arrayInputObj0,
-    arrayInputObj1, 
-    arrayInputObj2, 
-    arrayInputObj3, 
-    arrayInputObj4 
+    //Global Variables
+    var questionStrings = ['Heart-Failure',
+			   'Hypertension',
+			   'Age',
+			   'Diabetes',
+			   'Stroke'];
     
-];
-
-var arrayOutputObj  = document.getElementsByName("formulaFinal");
-var arrayOutputText = document.getElementById("scoreText");
-
-window.onload=function() {
-    document.getElementById('btnReset').onclick = function(){
+    var arrayOfHashQuestions=[];
+    for (var i=0; i<questionStrings.length; i++){
+	var hash= {
+	    "yes": document.querySelector('#'+questionStrings[i]+'-Yes'),
+	    "no": document.querySelector('#'+questionStrings[i]+'-No')
+	};
+	arrayOfHashQuestions.push(hash);
+    }
+    
+    var $outputValue = document.querySelector('#Final-Score');
+    var $outputText  = document.querySelector('#Final-Score-Text');
+    //Reset button
+    document.getElementById('btnReset').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
-	//Reset
-	resetValRadio(arrayInputObj0);
-	resetValRadio(arrayInputObj1);
-	resetValRadio(arrayInputObj2);
-	resetValRadio(arrayInputObj3);
-	resetValRadio(arrayInputObj4);
-	resetVal(arrayOutputObj);
-	arrayOutputText.innerHTML = "";
-    }
-    document.getElementById('btnCalc').onclick = function(){
+
+	//Reset radio buttons and outputs
+	for (var x=0; x<arrayOfHashQuestions.length; x++){
+	    arrayOfHashQuestions[x]['yes'].checked=false;
+	    arrayOfHashQuestions[x]['no'].checked=false;
+	    
+	}	
+	$outputValue.value  = '';
+	$outputText.innerHTML = "";
+    });
+							 
+    //Calculate button
+    document.getElementById('btnCalc').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
-	
-	//Calculate Formula
-	calculateFormula(arrayInputObjVal, arrayOutputObj, arrayOutputText);
-    }
-}
 
-function calculateFormula(arrayInput, arrayOutput, arrayOutputText){ 	
+	//Reset all ouput values before calculating
+	$outputValue.value  = '';
+	$outputText.innerHTML = "";
 
-    //Reset outputs before calculation
-    resetVal(arrayOutput);
-    arrayOutputText.innerHTML = "";
-   
-    
-    //Calculate
-    var totalScore= new Number(0);
-    for(var i=0; i<arrayInput.length; i++){
-	if (arrayInput[i][0].checked==true)
-	{
-	    totalScore+= new Number(arrayInput[i][0].value);
+	//Add up all the "checked" yes radio values and create a "totalScore"
+	var totalScore= new Number(0);
+	//Description for tiasymptoms below
+	var tiaSymptoms="";
+
+	for (var x=0; x<arrayOfHashQuestions.length; x++){
+	    if (arrayOfHashQuestions[x]['yes'].checked==true){
+		totalScore += new Number(arrayOfHashQuestions[x]['yes'].value);
+	    }
+	    //Check to see if any radio button sets have not been selected
+	    else if(arrayOfHashQuestions[x]['no'].checked==false){
+		alert(arrayOfHashQuestions[x]['no'].id+' or '+arrayOfHashQuestions[x]['yes'].id+' has not been checked. One of them must be checked');
+		return;
+	    }
+	    //Check if Stroke Question is yes, and if so, add extra output text in tiaSymptoms
+	    if (arrayOfHashQuestions[x]['yes'].id=="Stroke-Yes" && arrayOfHashQuestions[x]['yes'].checked==true){
+		tiaSymptoms="Note: While history of stroke provides 2 points, most physicians would move these patients directly to the high risk group (>8.5% risk of event per year if no coumadin.)<br>";
+	    }
 	}
-	else if (arrayInput[i][0].checked==false && arrayInput[i][1].checked==false){
-	    alert(arrayInput[i][0].id+' or '+arrayInput[i][1].id+' has not been checked. One of them must be checked');
-	    break;
-	}	    
-    }
-    arrayOutput[0].value = totalScore;
 
-    //Check if Q5 is yes or not
-    var tiaSymptoms="";
-    if (arrayInput[4][0].checked==true){
-	tiaSymptoms="Note: While history of stroke provides 2 points, most physicians would move these patients directly to the high risk group (>8.5% risk of event per year if no coumadin.)<br>";
-    }
-    
+	//Output calculated value 
+	$outputValue.value = totalScore;
 
-    //Print Outputs
-    var ending= "<br>The adjusted stroke rate was the expected stroke rate per 100 person-years derived from the multivariable model assuming that aspirin was not taken.<br>";
-    if(arrayOutput[0].value == 0){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>Low risk of thromboembolic event. 1.9% risk of event per year if no coumadin.<br>" + ending;
-    }
-    else if(arrayOutput[0].value == 1){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 2.8% risk of event per year if no coumadin.<br>" + ending;
-    }
-    else if(arrayOutput[0].value == 2){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 4.0% risk of event per year if no coumadin.<br>" + ending;
-    }
-    else if(arrayOutput[0].value == 3){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 5.9% risk of event per year if no coumadin.<br>" + ending;
-    }
-    else if(arrayOutput[0].value == 4){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 8.5% risk of event per year if no coumadin.<br>" + ending;
-    }    
-    else if(arrayOutput[0].value == 5){
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 12.5% risk of event per year if no coumadin.<br>" + ending;
-    }
-    else
-	arrayOutputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 18.2% risk of event per year if no coumadin.<br>" + ending;
-}
-
+	//Print associated output text
+	var ending= "<br>The adjusted stroke rate was the expected stroke rate per 100 person-years derived from the multivariable model assuming that aspirin was not taken.<br>";
+	if($outputValue.value == 0){
+	    $outputText.innerHTML = tiaSymptoms + "<br>Low risk of thromboembolic event. 1.9% risk of event per year if no coumadin.<br>" + ending;
+	}
+	else if($outputValue.value == 1){
+	    $outputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 2.8% risk of event per year if no coumadin.<br>" + ending;
+	}
+	else if($outputValue.value == 2){
+	    $outputText.innerHTML = tiaSymptoms + "<br>Intermediate risk of thromboembolic event. 4.0% risk of event per year if no coumadin.<br>" + ending;
+	}
+	else if($outputValue.value == 3){
+	    $outputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 5.9% risk of event per year if no coumadin.<br>" + ending;
+	}
+	else if($outputValue.value == 4){
+	    $outputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 8.5% risk of event per year if no coumadin.<br>" + ending;
+	}    
+	else if($outputValue.value == 5){
+	    $outputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 12.5% risk of event per year if no coumadin.<br>" + ending;
+	}
+	else{
+	    $outputText.innerHTML = tiaSymptoms + "<br>High risk of thromboembolic event. 18.2% risk of event per year if no coumadin.<br>" + ending;
+	}
+	
+    });
+});
