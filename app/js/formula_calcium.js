@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //Change placeholders and inputted values based on selected calcium units
     $calciumUnitSelect.addEventListener('change', function() {
-	var calciumNum= createNumCommaAndPoint($calciumValue.value);
+	var calciumNum;
+	if($calciumValue.value!=''){
+	    calciumNum= createNumCommaAndPoint($calciumValue.value);
+	}
     	$calciumValue.placeholder = selectPlaceholdersHash[$calciumUnitSelect.value];
 	if(!isNaN(calciumNum)){
 	    if(initialCalciumSelectValue=="mmol"){
@@ -36,7 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Change placeholders and inputted values based on selected albumin units
     $albuminUnitSelect.addEventListener('change',function(){
-	var albuminNum= createNumCommaAndPoint($albuminValue.value);
+	var albuminNum;
+	if ($albuminValue.value!=''){
+	    albuminNum= createNumCommaAndPoint($albuminValue.value);
+	}
 	$albuminValue.placeholder = selectPlaceholdersHash[$albuminUnitSelect.value];
 	if(!isNaN(albuminNum)){
 	    if(initialAlbuminSelectValue=="L"){

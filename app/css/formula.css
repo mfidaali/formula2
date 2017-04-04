@@ -1,7 +1,10 @@
-.vc_empty_space {
+.vc_empty_space_64 {
     height: 64px;
 }
 
+.vc_empty_space_150 {
+    height: 150px;
+}
 
 .blau p, .blau h1, .blau h2, .blau h3, .blau h4, .blau h5, .blau h6, .blau .h1, .blau .h2, .blau .h3, .blau .h4, .blau .h5, .blau .h6 {
     color: #80D0EB;
@@ -10,10 +13,37 @@
 .wpb_wrapper h1, h2{
 
     text-align: center;
+    font-weight: 400;
+    font-family: Lato;
+    font-size: 50px;
+    line-height: 54px;
     
 }
 
-h1{
+.wpb_wrapper h2{
+
+    text-align: center;
+    font-weight: 300;
+    font-family: Lato;
+    font-size: 30px;
+    line-height: 34px;
+    
+}
+
+
+h3{
+
+    text-align: center;
+    font-weight: bold;
+    font-family: Lato;
+    font-size: 28px;
+    line-height: 34px;
+    margin: 30px 0px;
+    
+}
+
+
+/*h1{
     font-weight: 400;
     font-family: Lato;
     font-size: 50px;
@@ -26,6 +56,7 @@ h2{
     font-size: 30px;
     line-height: 34px;
 }
+*/
 
 p {
     font-weight: 300;
@@ -38,7 +69,15 @@ p {
     text-align: center;
 }
 
+label {
 
+    padding-top: 10px;
+    font-weight: bold;
+    color: #4d4d4d;
+    font-size: 30px;
+    line-height: 24px;
+    
+}
 
 /*
 Pre css changes for Amboss Design
@@ -52,6 +91,151 @@ Pre css changes for Amboss Design
 .select-linked {
     visibility: hidden;
 }
+
+
+/* Form Style Rev1 */
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.form-style-8 h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 20px;
+    margin: 10px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+
+
+/* List styling */
+
+.new-list {
+    width:450px
+}
+
+/*
+.new-list {
+    width: 200px;
+}
+*/
+
+.new-list h2 {
+    /*font: 400 40px/1.5 Helvetica, Verdana, sans-serif;*/
+    font: 400 40px/1.5 Lato;
+    margin: 0;
+    padding: 0;
+    font-weight:bold;
+}
+
+.new-list h3{
+    text-align: center;
+    font-weight: bold;
+    font-family: Lato;
+    font-size: 24px;
+    line-height: 34px;
+}
+ 
+.new-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10;
+}
+ 
+.new-list li {
+    /*font: 100 20px/1.5 Helvetica, Verdana, sans-serif;*/
+    font: 100 20px/1.5 Lato;
+  border-bottom: 1px solid #ccc;
+
+}
+ 
+.new-list li:last-child {
+  border: none;
+}
+ 
+.new-list li a {
+  text-decoration: none;
+  display: block;
+  width: 600px;
+  /*  color: #000;
+      text-align:center; */
+
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+.new-list li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}
+
 
 /*
 .select-wrapper__val::after{
@@ -68,4 +252,3 @@ Pre css changes for Amboss Design
 .indent {
 	text-align: right;
 }*/
-
