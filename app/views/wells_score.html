@@ -22,6 +22,8 @@
 
 	<link href="../css/formula.css" rel="stylesheet">
 
+	<script src="https://use.fontawesome.com/d56fb39642.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type='text/css'>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -77,64 +79,83 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		    <h1 class="page-header">Formulas</h1>
 		    <div class="calculated-formulas">
-			<span class="formulas">
-			    <form method="POST" id="wells_score">	
-				<p>Aufgrund ihrer hohen diagnostischen Sensitivität ( > 98 % ) aber niedrigen Spezifität ( < 50 % ) eignet sich die D-Dimer-Bestimmung zum Ausschluss einer Thromboembolie. Die Ergebnisse sollten jedoch immer in Kombination mit der klinischen Wahrscheinlichkeit interpretiert werden. Die aktuellen interdisziplinären S2-Leitlininien für Venenthrombose und Lungenembolie empfehlen hierzu den sog. "Wells-Score".</p>
-				<div class="table-responsive">
-				    <table class="table table-striped">
-					<thead>
-					    <tr>
-						<th>Symptome</th>
-						<th>Punkte</th>
-						<th>Symptome vorhanden</th>
-					    </tr>
-					</thead>
-					<tbody>
-					    <tr>
-						<td>Q1: Klinische Zeichen oder Symptome einer tiefen Beinvenenthrombose (mindestens Schwellung eines Beines und Schmerzen bei der Palpation der tiefliegenden Venen</td>
-						<td>3</td>
-						<td><input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-Yes" value="3">Ja<br>
-						    <input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-No" value="0">Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q2: eine andere Diagose ist weniger wahrscheinlicher als eine Lungenembolie</td>
-						<td>3</td>
-						<td><input type="radio" name="Lungenembolie" id="Lungenembolie-Yes" value="3" >Ja<br>
-						    <input type="radio" name="Lungenembolie" id="Lungenembolie-No" value="0" >Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q3: Herzfrequenz > 100</td>
-						<td>1,5</td>
-						<td><input type="radio" name="Herzfrequenz" id="Herzfrequenz-Yes" value="1.5">Ja<br>
-						    <input type="radio" name="Herzfrequenz" id="Herzfrequenz-No" value="0"  >Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q4: Immobilisierung oder chirurgischer Eingriff in den vergangen vier Wochen</td>
-						<td>1,5</td>
-						<td><input type="radio" name="Immobilisierung" id="Immobilisierung-Yes" value="1.5" >Ja<br>
-						    <input type="radio" name="Immobilisierung" id="Immobilisierung-No" value="0"   >Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q5: vorangegangene tiefe Beinvenenthrombose / Lungenembolie</td>
-						<td>1,5</td>
-						<td><input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-Yes" value="1.5" >Ja<br>
-						    <input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-No" value="0"	 >Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q6: Bluthusten</td>
-						<td>1</td>
-						<td><input type="radio" name="Bluthusten" id="Bluthusten-Yes" value="1" >Ja<br>
-						    <input type="radio" name="Bluthusten" id="Bluthusten-No" value="0" >Nein</td>
-					    </tr>
-					    <tr>
-						<td>Q7: Tumorerkrankung (unter Therapie, nach Therapie innerhalb der letzten 6 Monate oder Palliativtherapie)</td>
-						<td>1</td>
-						<td><input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-Yes" value="1" >Ja<br>
-						    <input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-No" value="0" >Nein</td>
-					    </tr>
-					    <tr>
-						<td><button id="btnCalc" >Berechnen</button>
-						    <button id="btnReset">Zurücksetzen</button></td>
+			<div class="vc_empty_space"><span class="vc_empty_space_inner"></span></div>
+			<div class="wpb_text_column wpb_content_element blau">
+			    <div class="wpb_wrapper">
+				<h1>Wells Score</h1>
+				<h2>Info from Kenan</h2>
+			    </div> 
+			</div>
+			<div class="vc_empty_space_64"><span class="vc_empty_space_inner"></span></div>
+			<div class="middle">
+			    <p>Aufgrund ihrer hohen diagnostischen Sensitivität ( > 98 % ) aber niedrigen Spezifität ( < 50 % ) eignet sich die D-Dimer-Bestimmung zum Ausschluss einer Thromboembolie. Die Ergebnisse sollten jedoch immer in Kombination mit der klinischen Wahrscheinlichkeit interpretiert werden. Die aktuellen interdisziplinären S2-Leitlininien für Venenthrombose und Lungenembolie empfehlen hierzu den sog. "Wells-Score".
+			    </p>
+			</div>
+			<div class="vc_empty_space_64"><span class="vc_empty_space_inner"></span></div>
+
+			
+
+			<div class="row" style="background-color: #ecf0f1">
+			    <div class="form-style-8 form-style-8-width-score">
+				<span class="formulas">
+				    <form method="POST" id="wells_score">	
+					<div class="table-responsive">
+					    <table class="table table-striped">
+						<thead>
+						    <tr>
+							<th>Symptome</th>
+							<th>Punkte</th>
+							<th>Symptome vorhanden</th>
+						    </tr>
+						</thead>
+						<tbody>
+						    <tr>
+							<td>Q1: Klinische Zeichen oder Symptome einer tiefen Beinvenenthrombose (mindestens Schwellung eines Beines und Schmerzen bei der Palpation der tiefliegenden Venen</td>
+							<td>3</td>
+							<td><input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-Yes" value="3"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							    <br>
+							    <input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-No" value="0"><i class="fa fa-times" aria-hidden="true"></i>
+							</td>
+						    </tr>
+						    <tr>
+							<td>Q2: eine andere Diagose ist weniger wahrscheinlicher als eine Lungenembolie</td>
+							<td>3</td>
+							<td><input type="radio" name="Lungenembolie" id="Lungenembolie-Yes" value="3" >Ja<br>
+							    <input type="radio" name="Lungenembolie" id="Lungenembolie-No" value="0" >Nein</td>
+						    </tr>
+						    <tr>
+							<td>Q3: Herzfrequenz > 100</td>
+							<td>1,5</td>
+							<td><input type="radio" name="Herzfrequenz" id="Herzfrequenz-Yes" value="1.5">Ja<br>
+							    <input type="radio" name="Herzfrequenz" id="Herzfrequenz-No" value="0"  >Nein</td>
+						    </tr>
+						    <tr>
+							<td>Q4: Immobilisierung oder chirurgischer Eingriff in den vergangen vier Wochen</td>
+							<td>1,5</td>
+							<td><input type="radio" name="Immobilisierung" id="Immobilisierung-Yes" value="1.5" >Ja<br>
+							    <input type="radio" name="Immobilisierung" id="Immobilisierung-No" value="0"   >Nein</td>
+						    </tr>
+						    <tr>
+							<td>Q5: vorangegangene tiefe Beinvenenthrombose / Lungenembolie</td>
+							<td>1,5</td>
+							<td><input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-Yes" value="1.5" >Ja<br>
+							    <input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-No" value="0"	 >Nein</td>
+						    </tr>
+						    <tr>
+							<td>Q6: Bluthusten</td>
+							<td>1</td>
+							<td><input type="radio" name="Bluthusten" id="Bluthusten-Yes" value="1" >Ja<br>
+							    <input type="radio" name="Bluthusten" id="Bluthusten-No" value="0" >Nein</td>
+						    </tr>
+						    <tr>
+							<td>Q7: Tumorerkrankung (unter Therapie, nach Therapie innerhalb der letzten 6 Monate oder Palliativtherapie)</td>
+							<td>1</td>
+							<td><input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-Yes" value="1" >Ja<br>
+							    <input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-No" value="0" >Nein</td>
+						    </tr>
+						    <tr>
+							<td><input type="button" id="btnCalc" value="Berechnen">
+							    <input type="button" id="btnReset" value="Zurücksetzen"><br></td>
 						<td></td>
 						<td></td>
 					    </tr>
@@ -156,7 +177,10 @@
 		    </div>
 		</div>
 	    </div>
+		</div>
+	    </div>
 	</div>
+    
 	<!-- Bootstrap core JavaScript
 	     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

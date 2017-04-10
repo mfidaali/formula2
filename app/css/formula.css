@@ -8,13 +8,14 @@
 
 .blau p, .blau h1, .blau h2, .blau h3, .blau h4, .blau h5, .blau h6, .blau .h1, .blau .h2, .blau .h3, .blau .h4, .blau .h5, .blau .h6 {
     color: #80D0EB;
+    font-family: 'Lato', sans-serif;
 }
 
 .wpb_wrapper h1, h2{
 
     text-align: center;
     font-weight: 400;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 50px;
     line-height: 54px;
     
@@ -24,7 +25,7 @@
 
     text-align: center;
     font-weight: 300;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 30px;
     line-height: 34px;
     
@@ -35,7 +36,7 @@ h3{
 
     text-align: center;
     font-weight: bold;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 28px;
     line-height: 34px;
     margin: 30px 0px;
@@ -63,6 +64,8 @@ p {
     color: #4d4d4d;
     font-size: 16px;
     line-height: 24px;
+    font-family: 'Lato', sans-serif;
+
 }
 
 .middle{
@@ -72,10 +75,12 @@ p {
 label {
 
     padding-top: 10px;
+    padding-bottom: 5px;
     font-weight: bold;
     color: #4d4d4d;
-    font-size: 30px;
+    font-size: 18px;
     line-height: 24px;
+    font-family: 'Lato', sans-serif;
     
 }
 
@@ -94,12 +99,20 @@ Pre css changes for Amboss Design
 
 
 /* Form Style Rev1 */
+.form-style-8-width-calculate{
+        width: 350px;
+}
+
+.form-style-8-width-score{
+        width: 900px;
+}
+
 .form-style-8{
-    font-family: 'Open Sans Condensed', arial, sans;
-    width: 500px;
-    padding: 30px;
+    /*font-family: 'Open Sans Condensed', arial, sans;*/
+    font-family: 'Lato', sans-serif;
+    padding: 10px;
     background: #FFFFFF;
-    margin: 50px auto;
+    margin: 20px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
@@ -108,13 +121,41 @@ Pre css changes for Amboss Design
 .form-style-8 h2{
     background: #4D4D4D;
     text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    font-family: 'Lato', sans-serif;
     color: #797979;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 100;
-    padding: 20px;
-    margin: 10px -30px 30px -30px;
+    padding: 0px;
+    margin: 10px -10px 10px -10px;
 }
+
+.form-style-8-footnotes{
+    background-color: #4D4D4D;
+    padding: 0;
+    margin: 0px -10px -40px -10px;
+}
+
+.form-style-8 h3{
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 10px;
+    text-align:left;
+    line-height: 18px;
+}
+
+/*.form-style-8 h3{
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;    
+    font-size: 24px;
+    font-weight: 100;
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+}
+*/
+
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
 .form-style-8 input[type="datetime"],
@@ -133,12 +174,13 @@ Pre css changes for Amboss Design
     outline: none;
     display: block;
     width: 100%;
-    padding: 7px;
+    padding: 0px 0px 0px 0px;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
-    margin-bottom: 10px;
-    font: 16px Arial, Helvetica, sans-serif;
+    margin-top: -5px;
+    margin-bottom: 0px;
+    font: 14px Arial, Helvetica, sans-serif;
     height: 45px;
 }
 .form-style-8 textarea{
@@ -150,17 +192,18 @@ Pre css changes for Amboss Design
     -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    background-color: #2CBBBB;
+    background-color: #68bfd3;
     border: 1px solid #27A0A0;
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 18px;
-    padding: 8px 18px;
+/*    font-family: 'Open Sans Condensed', sans-serif; */
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding: 3px 10px 3px 10px;
     text-decoration: none;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-style-8 input[type="button"]:hover, 
@@ -194,7 +237,7 @@ Pre css changes for Amboss Design
 .new-list h3{
     text-align: center;
     font-weight: bold;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 24px;
     line-height: 34px;
 }
@@ -207,7 +250,8 @@ Pre css changes for Amboss Design
  
 .new-list li {
     /*font: 100 20px/1.5 Helvetica, Verdana, sans-serif;*/
-    font: 100 20px/1.5 Lato;
+    font: 100 20px/1.5;
+    font-family: 'Lato', sans-serif;
   border-bottom: 1px solid #ccc;
 
 }
