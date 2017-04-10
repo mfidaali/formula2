@@ -1,0 +1,65 @@
+/* List styling, usually at bottom of webpage for extra links*/
+.new-list {
+    width:450px
+}
+
+/*
+.new-list {
+    width: 200px;
+}
+*/
+
+.new-list h2 {
+    /*font: 400 40px/1.5 Helvetica, Verdana, sans-serif;*/
+    font: 400 40px/1.5 Lato;
+    margin: 0;
+    padding: 0;
+    font-weight:bold;
+}
+
+.new-list h3{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    line-height: 34px;
+}
+ 
+.new-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10;
+}
+ 
+.new-list li {
+    /*font: 100 20px/1.5 Helvetica, Verdana, sans-serif;*/
+    font: 100 20px/1.5;
+    font-family: 'Lato', sans-serif;
+  border-bottom: 1px solid #ccc;
+
+}
+ 
+.new-list li:last-child {
+  border: none;
+}
+ 
+.new-list li a {
+  text-decoration: none;
+  display: block;
+  width: 600px;
+  /*  color: #000;
+      text-align:center; */
+
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+.new-list li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}
+

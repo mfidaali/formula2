@@ -20,9 +20,11 @@
 	<!-- Custom styles for this template -->
 	<link href="../css/dashboard.css" rel="stylesheet" type="text/css">
 
-	<link href="../css/formula.css" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link href="../css/formula_text_style.css" rel="stylesheet" type="text/css">
+	<link href="../css/formula_calculator_style.css" rel="stylesheet" type="text/css">
+	<link href="../css/formula_list_style.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type='text/css'>
+	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -129,15 +131,15 @@
 					<br>
 					
 					<!--  <button id="btnCalc" >Berechnen</button>
-					<button id="btnReset">Zurücksetzen</button><br> -->
+					     <button id="btnReset">Zurücksetzen</button><br> -->
 
 					<input type="button" id="btnCalc" value="Berechnen">
 					<input type="button" id="btnReset" value="Zurücksetzen"><br>
 					
-					<input type="text" id="Calcium-Output" placeholder="Korrigiertes Calcium"><span class="bold"><span id="corrected-calcium-units"></span></span><br>
-					
+					<input type="text" id="Calcium-Output" placeholder="Korrigiertes Calcium"><br>
+					<strong><span id="Norm-Values"></span></strong>				
 					<div class="form-style-8-footnotes">
-					    <h3>Formula Used:<br>Calcium<sub>korrigiert</sub>[mmol/l] = Calcium<sub>gemessen</sub>[mmol/l] – (0,025 x Albumin [g/l]) + 1</h3>
+					    <h3>Formula Used:<br>Calcium<sub>korrigiert</sub> [mmol/l] = Calcium<sub>gemessen</sub> [mmol/l] – (0,025 x Albumin [g/l]) + 1</h3>
 					</div>
 				    </form>
 				</span>
@@ -148,12 +150,12 @@
 			<h3>Weiterführende Inhalte im AMBOSS</h3>
 			<div class="new-list">
 			    <ul>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=444cd2ab2a8811111a389f1083fbf1f8">Basislabor bei allen Kalziumstörungen</a></li>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=b5ad7b3915a89f2d4cee16f14b3b11cb">Weitere Abklärung der Hypocalcämie</a></li>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=ca6d8eda717a2f3475146a1360fc5d7d">Weitere Abklärung der Hypercalcämie</a></li>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=22123cb36dd9abe9e849e613f9de3bcc">Therapie der Hypercalcämie</a></li>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=e993964fd8373930b76048895f315218">Therapie der Hypocalcämie</a></li>
-				<li><a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=68dd6d922bc89c83d78314c903feab62">Kalziumhaushalt - Pathophysiologische Grundlagen</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=444cd2ab2a8811111a389f1083fbf1f8">Basislabor bei allen Kalziumstörungen</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=b5ad7b3915a89f2d4cee16f14b3b11cb">Weitere Abklärung der Hypocalcämie</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=ca6d8eda717a2f3475146a1360fc5d7d">Weitere Abklärung der Hypercalcämie</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=22123cb36dd9abe9e849e613f9de3bcc">Therapie der Hypercalcämie</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=e993964fd8373930b76048895f315218">Therapie der Hypocalcämie</a></li>
+				<li><a target="_blank" href="https://amboss.miamed.de/library#xid=Hg0K92&anker=68dd6d922bc89c83d78314c903feab62">Kalziumhaushalt - Pathophysiologische Grundlagen</a></li>
 			    </ul>
 			</div>
 			

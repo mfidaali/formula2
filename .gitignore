@@ -1,2 +1,4 @@
 old/
 node_modules
+app/views/old_views
+app/FullscreenForm

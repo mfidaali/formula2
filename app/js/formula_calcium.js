@@ -3,7 +3,7 @@ var $albuminValue      = document.querySelector('#Albumin-Input'); // ID notatio
 var $outputValue       = document.querySelector('#Calcium-Output'); // ID notation
 var $calciumUnitSelect = document.querySelector("#select-calcium-units"); // ID notation
 var $albuminUnitSelect = document.querySelector("#select-albumin-units"); // ID notation
-var $outputFinalUnits  = document.querySelector("#corrected-calcium-units"); // ID notation
+var $outputNormValues  = document.querySelector("#Norm-Values"); // ID notation
 
 
 var selectPlaceholdersHash = {
@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Reset inputs and outputs
 	$calciumValue.value = '';
 	$albuminValue.value = '';
-	$outputValue.value  = '';	
+	$outputValue.value  = '';
+	$outputNormValues.innerHTML='';
+
     });
 
 
@@ -85,20 +87,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Reset all ouput values before calculating
 	$outputValue.value = '';	
 	
+	//Display correct units based on $calciumUnitSelect
+	var $outputFinalUnits;
+	if($calciumUnitSelect.value=="mmol"){
+	    $outputFinalUnits = "mmol/L";
+	    $outputNormValues.innerHTML=selectPlaceholdersHash["mmol"];
+	}
+	else{
+	    $outputFinalUnits = "mg/dL";
+	    $outputNormValues.innerHTML=selectPlaceholdersHash["mg"];
+	}
 	//Calculate Formula based on $albuminUnitSelect
 	if ($albuminUnitSelect.value=="L"){
-	    $outputValue.value = calculateFormulaL(calciumNum, albuminNum);
+	    $outputValue.value = calculateFormulaL(calciumNum, albuminNum)  + " " + $outputFinalUnits;
 	}
 	else{
-	    $outputValue.value = calculateFormulaDL(calciumNum, albuminNum);
-	}
-	
-	//Display correct units based on $calciumUnitSelect
-	if($calciumUnitSelect.value=="mmol"){
-	    $outputFinalUnits.innerHTML = "mmol/L";
-	}
-	else{
-	    $outputFinalUnits.innerHTML = "mg/dL";
+	    $outputValue.value = calculateFormulaDL(calciumNum, albuminNum) + " " + $outputFinalUnits;
 	}	
     });
 });
