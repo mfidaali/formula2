@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
     <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +7,27 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="../images/favicon.ico">
+	<link rel="icon" href="/images/favicon.ico">
 
 	<title>Formulas Page</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	<link href="/css/vendor/ie10-viewport-bug-workaround.css" rel="stylesheet" type="text/css">
 
 	<!-- Custom styles for this template -->
-	<link href="../css/dashboard.css" rel="stylesheet">
-
-	<link href="../css/formula.css" rel="stylesheet">
+	<link href="/css/vendor/dashboard.css" rel="stylesheet" type="text/css">
 	
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<link href="/css/f2_main_style.css" rel="stylesheet" type="text/css">
+	<link href="/css/f2_calculator_style.css" rel="stylesheet" type="text/css">
+	<link href="/css/f2_infolist_style.css" rel="stylesheet" type="text/css">
+	<link href="/css/f2_table_style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type='text/css'>		
     </head>
 
     <body>
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="container-fluid">
 		<div class="navbar-header">
@@ -42,6 +39,21 @@
 		    </button>
 		    <a class="navbar-brand" href="#">Formula Page</a>
 		</div>
+	    </div>
+	</nav>
+	<body>
+
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+		    <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			</button>
+		    <a class="navbar-brand" href="#">Formula Page</a>
+		</div>
 		
 	    </div>
 	</nav>
@@ -50,71 +62,89 @@
 	    <div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
 		    <ul class="nav nav-sidebar">
-			<li><a href="../index.html">Overview <span class="sr-only">(current)</span></a></li>
-			<li><a href="../views/calcium.html">Calcium</a></li>
-			<li><a href="../views/bmi.html">BMI</a></li>
-			<li><a href="../views/wells_score.html">Wells Score</a></li>
-			<li><a href="../views/opioid.html">Opioid</a></li>
-			<li><a href="../views/qtzeit.html">QT Zeit</a></li>
-			<li><a href="../views/aniongap.html">Anion Gap</a></li>
-			<li class="active"><a href="../views/bicarbonate.html">Bicarbonate</a></li>
-			<li><a href="../views/chads2_score.html">CHADS2 Score</a></li>
-			<li><a href="../views/has_bled_score.html">HAS-BLED Score</a></li>
-			<li><a href="../views/child_pugh_kriterien.html">Child-Pugh Score</a></li>
+			<li><a href="/index.html">Overview <span class="sr-only">(current)</span></a></li>
+			<li><a href="/views/calcium.html">Calcium</a></li>
+			<li><a href="/views/bmi.html">BMI</a></li>
+			<li><a href="/views/korperoberflache.html">Korperoberflache</a></li>
+			<li><a href="/views/qtzeit.html">QT Zeit</a></li>
+			<li><a href="/views/aniongap.html">Anion Gap</a></li>
+			<li class="active"><a href="/views/bicarbonate.html">Bicarbonate</a></li>
+			<li><a href="/views/aciclovir.html">Aciclovir Ratiopharm</a></li>
+			
+			<li><a href="/views/wells_score.html">Wells Score</a></li>
+			<li><a href="/views/chads2_score.html">CHADS2 Score</a></li>
+			<li><a href="/views/has_bled_score.html">HAS-BLED Score</a></li>
+			<li><a href="/views/child_pugh_kriterien.html">Child-Pugh Score</a></li>
+			<li><a href="/views/opioid.html">Opioid</a></li>
 			<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Kreatinin Clearance<span class="caret"></span></a>    
 			    <ul class="dropdown-menu">
-				<li><a href="../views/mdrd.html">MDRD</a></li>
-				<li><a href="../views/ckd.html">CKD-EPI</a></li>
-				<li><a href="../views/counahan.html">Counahan</a></li>
+				<li><a href="/views/mdrd.html">MDRD</a></li>
+				<li><a href="/views/ckd.html">CKD-EPI</a></li>
+				<li><a href="/views/counahan.html">Counahan</a></li>
 			    </ul>
 			</li>
-			<li><a href="../views/aciclovir.html">Aciclovir Ratiopharm</a></li>
 
 		    </ul>		
 		</div>
 		
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		    <h1 class="page-header">Formulas</h1>
 		    <div class="calculated-formulas">
-			<h2>Bicarbonate</h2>
-			<span class="formulas">
-			    <form method="POST" id="bicarbonateFormula">
-				<label for="Negative Base Deviation">Negative Base Deviation (-BE):</label> 
-				<input type="text" id="BE-Input" placeholder="Norm: INFO NEEDED"><span class="bold">mmol/L</span><br>
-				<label for="weight">Weight:</label> 
-				<input type="text" id="weight-Input" placeholder="Norm: INFO NEEDED"><span class="bold">kg</span><br>
-				
-				
-				<button id="btnCalc" >Berechnen</button>
-				<button id="btnReset">Zurücksetzen</button><br>
-				
-				<label for="NaHCO">NaHCO<sub>3</sub></label>
-				<input type="text" id="NaHCO"><span class="bold">mmol</span><br>
-				
-				<h3>Formula Used:</h3>
-				<p><span class="bold">NaHCO<sub>3</sub> = -BE &times KG(kg) &times 0.3</span></p>
-				
-			    </form>
-			</span>	
+			<div class="f2_header f2_blue">
+			    <h1>Bikarbonat</h1>
+			</div> 
+			<div class="f2_description">
+			    <p>Info from Kenan</p>
+			</div>
+			
+			<div class="f2_calculator">
+			    <div class="form-style-8-calculator">
+				<form method="POST">
+				    <label for="Negative Base Deviation">Negative Base Deviation (-BE):</label> 
+				    <input type="text" class="f2_be-input f2_js" placeholder="BE Value in mmol/L">
+
+				    <label for="weight">Weight:</label> 
+				    <input type="text" class="f2_weight-input f2_js" placeholder="Weight Value in kg">
+
+				    
+				    <input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
+				    <input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
+				    
+				    <input type="text" class="f2_nahco-output f2_js" placeholder="NaHCO3 Value">
+
+				    <div class="form-style-8-calculator-footnotes f2_formula_image">
+					<h3>Formula Used:<br>NaHCO<sub>3</sub> = -BE &times KG(kg) &times 0.3</h3>	
+				    </div>
+				</form>
+			    </div>
+			</div>
+
+			<div class="f2_further-info f2_blue">
+			    <h3>Weiterführende Inhalte im AMBOSS</h3>
+			    <div class="new-list">
+				<ul>
+				    <li><a target="_blank" href="">KENAN</a></li>
+				    <li><a target="_blank" href="">KENAN</a></li>
+				    <li><a target="_blank" href="">KENAN</a></li>
+				    <li><a target="_blank" href="">KENAN</a></li>
+				</ul>
+			    </div>
+			</div>
 		    </div>
-		    
 		</div>
 	    </div>
-	</div>
 
-	<!-- Bootstrap core JavaScript
-	     ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-	<script src="../js/bootstrap.min.js"></script>
+	    <!-- Bootstrap core JavaScript
+		 ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	    <script src="/js/vendor/bootstrap.min.js"></script>
 
-	<script type= "text/javascript" src="../js/formula_helper_script.js"></script>    
-	<script type= "text/javascript" src="../js/formula_bicarbonate.js"></script>
+	    <script type= "text/javascript" src="/js/formula_helper_script.js"></script>    
+	    <script type= "text/javascript" src="/js/formula_bicarbonate.js"></script>
 
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../js/ie10-viewport-bug-workaround.js"></script>
-    </body>
+	    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	    <script src="/js/vendor/ie10-viewport-bug-workaround.js"></script>
+	</body>
 </html>
-
 

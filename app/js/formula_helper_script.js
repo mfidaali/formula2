@@ -23,31 +23,31 @@ function createNumCommaAndPoint(input){
 
 /**
  * Make sure the input is in fact a number, and not some character like 'a' or empty
- * @param  {element} element - First parameter should be the element
- * @param {number|string} value - Second parameter is above element's value
+ * @param {number|string} value - First parameter is above element's value
  * @return {boolean}
  */
-function validateNum(element, value){
-    if (isNaN(value) || value=='' ) {
-	alert(element.id + ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+function validateNum(value){
+    if (isNaN(value) || value=='' ){	
 	return false;
     }
-    return true;
+    else{
+	return true;
+    }
 }
 
 
 /**
  * Make sure the input is in fact a number or empty, and not some character like 'a'
- * @param  {element} element - First parameter should be the element
- * @param {number|string} value - Second parameter is above element's value
+ * @param {number|string} value - First parameter is above element's value
  * @return {boolean}
  */
-function validateNumWithEmptyString(element, value){
+function validateNumWithEmptyString(value){
     if (isNaN(value)) {
-	alert(element.id + ' is not an acceptable input. Please make sure to input a number or leave it blank. Please do not input a character');
 	return false;
     }
-    return true;
+    else{
+	return true;
+    }
 }
 
 

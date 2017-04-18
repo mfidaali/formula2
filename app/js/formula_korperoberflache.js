@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
 
-    var $koerpergewichtValue = document.querySelector('.f2_koerpergewicht-input');
-    var $koerpergrosseValue  = document.querySelector('.f2_koerpergrosse-input'); 
-    var $outputValue         = document.querySelector('.f2_BMI-output'); 
-    
-
-    //Reset button
+     var $koerpergewichtValue = document.querySelector('.f2_koerpergewicht-input');
+     var $koerpergrosseValue  = document.querySelector('.f2_koerpergrosse-input'); 
+     var $outputKMValue       = document.querySelector('.f2_korperoberflache-mosteller-output'); 
+     var $outputKDValue       = document.querySelector('.f2_korperoberflache-dubois-output'); 
+     
+     //Reset button
     document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
 	//Stop form input submission
@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Reset inputs and outputs
 	$koerpergewichtValue.value='';
 	$koerpergrosseValue.value='';
-	$outputValue.value='';	
+	$outputKMValue.value='';	
+	$outputKDValue.value='';	
     });
 
     //Calculate button
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	//Stop form input submission
 	event.preventDefault();
-
+	
 	//Array based on inputs 
 	var inputArray = [$koerpergewichtValue, $koerpergrosseValue];
 
@@ -42,12 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		formulaArray.push(num);
 	    }
 	}
-	
+		
 	//Reset all ouput values before calculating
-	$outputValue.value='';	
+	$outputKMValue.value  = '';	
+	$outputKDValue.value  = '';	
 	
 	//Calculate Formula, rounded
-	$outputValue.value = calculateFormulaBMI(formulaArray[0], formulaArray[1]);		
+	$outputKMValue.value = calculateFormulaKM(formulaArray[0], formulaArray[1]);		
+	$outputKDValue.value = calculateFormulaKD(formulaArray[0], formulaArray[1]);	
+
+	
     });
 });
 
@@ -59,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
  * @return {number} Calculated value
  */
 
-function calculateFormulaBMI(input1, input2){ 	
-    return Math.round(input1/0.0001/Math.pow(input2,2) * 1000)/1000;		    
+function calculateFormulaKM(input1, input2){ 	
+    return Math.round(Math.sqrt(input1*input2/3600) * 10000)/10000;	    
+}
+
+function calculateFormulaKD(input1, input2){ 	
+    return  Math.round(0.007184*Math.pow(input2,0.725)*Math.pow(input1,0.425) * 10000)/10000;	    
 }

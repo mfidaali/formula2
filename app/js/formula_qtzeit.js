@@ -1,35 +1,50 @@
-var $QTValue        = document.querySelector('#QT-Input'); // ID notation
-var $freqValue      = document.querySelector('#Freq-Input'); 
-var $outputQTValue  = document.querySelector('#QT-Output'); 
-
 document.addEventListener('DOMContentLoaded', function() {
+
+    var $qtValue        = document.querySelector('.f2_qt-input'); // ID notation
+    var $freqValue      = document.querySelector('.f2_freq-input'); 
+    var $outputValue    = document.querySelector('.f2_qt-output'); 
+
     //Reset button
-    document.getElementById('btnReset').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
 
 	//Reset inputs and outputs
-	$QTValue.value = '';
+	$qtValue.value = '';
 	$freqValue.value = '';
-	$outputQTValue.value = '';	
+	$outputValue.value = '';	
     });
     
     //Calculate button
-    document.getElementById('btnCalc').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
 	//Stop form input submission
 	event.preventDefault();
 
-	//Create number obj based on input and make sure it is indeed a number 
-	var qtNum   = createNumCommaAndPoint($QTValue.value);
-	var freqNum = createNumCommaAndPoint($freqValue.value);
-	if(!validateNum($QTValue, qtNum) || !validateNum($freqValue, freqNum)){ 
-	    return;
-	}
-	//Reset all ouput values before calculating
-	$outputQTValue.value = '';
+	//Array based on inputs 
+	var inputArray = [$qtValue, $freqValue];
 
+	//Array of inputs for Formula
+	var formulaArray= [];
+	
+	//Create number obj based on input and make sure it is indeed a number.
+	//If all checks are good, add to formulaArray inputs 
+	for (var i=0; i<inputArray.length; i++){
+	    var num = createNumCommaAndPoint(inputArray[i].value);
+	    if (!validateNum(num)){
+		var string = inputArray[i].getAttribute("class");
+		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		return;
+	    }
+	    else{
+		formulaArray.push(num);
+	    }
+	}
+	
+	//Reset all ouput values before calculating
+	$outputValue.value='';	
+	
 	//Calculate Formula, rounded
-	$outputQTValue.value = calculateFormula(qtNum, freqNum);	
+	$outputValue.value = calculateFormula(formulaArray[0], formulaArray[1]);		
 	
     });
 });

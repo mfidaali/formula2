@@ -1,11 +1,3 @@
-var $calciumValue      = document.querySelector('#Calcium-Input'); // ID notation
-var $albuminValue      = document.querySelector('#Albumin-Input'); // ID notation
-var $outputValue       = document.querySelector('#Calcium-Output'); // ID notation
-var $calciumUnitSelect = document.querySelector("#select-calcium-units"); // ID notation
-var $albuminUnitSelect = document.querySelector("#select-albumin-units"); // ID notation
-var $outputNormValues  = document.querySelector("#Norm-Values"); // ID notation
-
-
 var selectPlaceholdersHash = {
     "mmol": "Norm: 2.20 - 2.65 mmol/L",
     "mg"  : "Norm: 8.80 - 10.60 mg/dL",
@@ -16,6 +8,13 @@ var selectPlaceholdersHash = {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    var $calciumValue      = document.querySelector('.f2_calcium-input'); 
+    var $albuminValue	   = document.querySelector('.f2_albumin-input'); 
+    var $outputValue	   = document.querySelector('.f2_calcium-output');
+    var $calciumUnitSelect = document.querySelector('.f2_select-calcium-units'); 
+    var $albuminUnitSelect = document.querySelector('.f2_select-albumin-units'); 
+    var $outputNormValues  = document.querySelector('.f2_norm-values'); 
+    
     var initialCalciumSelectValue = $calciumUnitSelect.value; 
     var initialAlbuminSelectValue = $albuminUnitSelect.value;
     
@@ -43,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	if ($albuminValue.value!=''){
 	    albuminNum= createNumCommaAndPoint($albuminValue.value);
 	}
-	$albuminValue.placeholder = selectPlaceholdersHash[$albuminUnitSelect.value];
+	$albuminValue.placeholder = selectPlaceholdersHash[
+	    $albuminUnitSelect.value];
 	if(!isNaN(albuminNum)){
 	    if(initialAlbuminSelectValue=="L"){
 		$albuminValue.value= $albuminValue.value / 10;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     //Reset button
-    document.getElementById('btnReset').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
 	//Stop form input submission
 	event.preventDefault();
@@ -72,18 +72,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     //Calculate button
-    document.getElementById('btnCalc').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
 	
 	//Stop form input submission
 	event.preventDefault();
 	
-	//Create number obj based on input and make sure it is indeed a number 
- 	var calciumNum= createNumCommaAndPoint($calciumValue.value);
- 	var albuminNum= createNumCommaAndPoint($albuminValue.value);
-	if(!validateNum($calciumValue, calciumNum) || !validateNum($albuminValue, albuminNum)){ 
-	    return;
-	}
+	//Array based on inputs 
+	var inputArray = [$calciumValue, $albuminValue];
+
+	//Array of inputs for Formula
+	var formulaArray= [];
 	
+	//Create number obj based on input and make sure it is indeed a number
+	//If all checks are good, add to formulaArray inputs 
+	for (var i=0; i<inputArray.length; i++){
+	    var num = createNumCommaAndPoint(inputArray[i].value);
+	    if (!validateNum(num)){
+		var string = inputArray[i].getAttribute("class");
+		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		return;
+	    }
+	    else{
+		formulaArray.push(num);
+	    }
+	}
+			
 	//Reset all ouput values before calculating
 	$outputValue.value = '';	
 	
@@ -99,10 +112,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	//Calculate Formula based on $albuminUnitSelect
 	if ($albuminUnitSelect.value=="L"){
-	    $outputValue.value = calculateFormulaL(calciumNum, albuminNum)  + " " + $outputFinalUnits;
+	    $outputValue.value = calculateFormulaL(formulaArray[0], formulaArray[1])  + " " + $outputFinalUnits;
 	}
 	else{
-	    $outputValue.value = calculateFormulaDL(calciumNum, albuminNum) + " " + $outputFinalUnits;
+	    $outputValue.value = calculateFormulaDL(formulaArray[0], formulaArray[1]) + " " + $outputFinalUnits;
 	}	
     });
 });
