@@ -1,18 +1,20 @@
-var $sodiumValue      = document.querySelector('#Sodium-Input');
-var $potassiumValue   = document.querySelector('#Potassium-Input');
-var $chlorideValue    = document.querySelector('#Chloride-Input');
-var $bicarbonateValue = document.querySelector('#Bicarbonate-Input');
-var $outputValue      = document.querySelector('#Anion');
-var $normbereichValue = document.querySelector('#Normbereich');
-
 var normbereichHash = {
     "with_potassium"     : "16 \xB1 4 mmol/L",
     "without_potassium"  : "11 \xB1 4 mmol/L"
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    var $sodiumValue      = document.querySelector('.f2_sodium-input');
+    var $potassiumValue   = document.querySelector('.f2_potassium-input');
+    var $chlorideValue    = document.querySelector('.f2_chloride-input');
+    var $bicarbonateValue = document.querySelector('.f2_bicarbonate-input');
+    var $outputValue      = document.querySelector('.f2_anion-output');
+    var $normbereichValue = document.querySelector('.f2_normbereich-output');
+
+
     //Reset button
-    document.getElementById('btnReset').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
 	//Stop form input submission
 	event.preventDefault();
@@ -27,26 +29,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     //Calculate button
-    document.getElementById('btnCalc').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
 	
 	//Stop form input submission
 	event.preventDefault();
 	
-	//Create number obj based on input and make sure it is indeed a number 
-	var sodiumNum      = createNumCommaAndPoint($sodiumValue.value);
-	var potassiumNum   = createNumCommaAndPoint($potassiumValue.value);
-	var chlorideNum    = createNumCommaAndPoint($chlorideValue.value);
-	var bicarbonateNum = createNumCommaAndPoint($bicarbonateValue.value);
-	if(!validateNum($sodiumValue, sodiumNum) || !validateNumWithEmptyString($potassiumValue, potassiumNum) || !validateNum($chlorideValue, chlorideNum) || !validateNum($bicarbonateValue, bicarbonateNum)){ 
+	//Array based on inputs, NOT including the OPTIONAL POTASSIUM input
+	var inputArray = [$sodiumValue, $chlorideValue, $bicarbonateValue];
+	
+	//Array of inputs for Formula
+	var formulaArray= [];
+
+	//Create number obj based on input and make sure it is indeed a number
+	//If all checks are good, add to formulaArray inputs 
+	for (var i=0; i<inputArray.length; i++){
+	    var num = createNumCommaAndPoint(inputArray[i].value);
+	    if (!validateNum(num)){
+		var string = inputArray[i].getAttribute("class");
+		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		    return;
+		}
+	    else{
+		formulaArray.push(num);
+	    }
+	}
+
+	//Check optional Potassium Input
+	var potassiumNum = createNumCommaAndPoint($potassiumValue.value);
+	if(!validateNumWithEmptyString(potassiumNum)){
+	    alert($potassiumValue.getAttribute("class") + ' is not an acceptable input. Please make sure to input a number or leave it blank. Please do not input a character');
 	    return;
 	}
-	
+
 	//Reset all ouput values before calculating
 	$outputValue.value  = '';	
 	$normbereichValue.value  = '';	
 	
 	//Calculate Formula
-	$outputValue.value = calculateFormula(sodiumNum, potassiumNum, chlorideNum, bicarbonateNum);
+	$outputValue.value = calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]);
 
 	if (potassiumNum != "" && potassiumNum != '0'){
 	    $normbereichValue.value = normbereichHash['with_potassium'];	

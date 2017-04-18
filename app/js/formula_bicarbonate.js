@@ -1,10 +1,10 @@
-var $beValue     = document.querySelector('#BE-Input');
-var $weightValue = document.querySelector('#weight-Input');
-var $outputValue = document.querySelector('#NaHCO');
-
 document.addEventListener('DOMContentLoaded', function() {
+    var $beValue     = document.querySelector('.f2_be-input');
+    var $weightValue = document.querySelector('.f2_weight-input');
+    var $outputValue = document.querySelector('.f2_nahco-output');
+
     //Reset button
-    document.getElementById('btnReset').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
 	//Stop form input submission
 	event.preventDefault();
@@ -14,24 +14,39 @@ document.addEventListener('DOMContentLoaded', function() {
 	$weightValue.value='';
 	$outputValue.value='';
     });
+    
     //Calculate button
-    document.getElementById('btnCalc').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
 	
 	//Stop form input submission
 	event.preventDefault();
 	
-	//Create number obj based on input and make sure it is indeed a number 
-	var beNum     = createNumCommaAndPoint($beValue.value);
-	var weightNum = createNumCommaAndPoint($weightValue.value);
-	if(!validateNum($beValue, beNum) || !validateNum($weightValue, weightNum)){ 
-	    return;
+	//Array based on inputs 
+	var inputArray = [$beValue, $weightValue];
+
+	//Array of inputs for Formula
+	var formulaArray= [];
+	
+	//Create number obj based on input and make sure it is indeed a number
+	//If all checks are good, add to formulaArray inputs 
+	for (var i=0; i<inputArray.length; i++){
+	    var num = createNumCommaAndPoint(inputArray[i].value);
+	    if (!validateNum(num)){
+		var string = inputArray[i].getAttribute("class");
+		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		return;
+	    }
+	    else{
+		formulaArray.push(num);
+	    }
 	}
 	
 	//Reset all ouput values before calculating
-	$outputValue.value  = '';	
+	$outputValue.value='';	
 	
 	//Calculate Formula, rounded
-	$outputValue.value = calculateFormula(beNum, weightNum);	
+	$outputValue.value = calculateFormula(formulaArray[0], formulaArray[1]) + " mmol";		
+	
     });
 });
 
