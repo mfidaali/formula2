@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$outputValue.value='';	
 	
 	//Calculate Formula, rounded
-	$outputValue.value = calculateFormula(formulaArray[0], formulaArray[1]);		
+	$outputValue.value = "QTc: " + calculateFormula(formulaArray[0], formulaArray[1]) + " ms";		
 	
     });
 });

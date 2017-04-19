@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$outputValue.value='';	
 	
 	//Calculate Formula, rounded
-	$outputValue.value = calculateFormulaBMI(formulaArray[0], formulaArray[1]);		
+	$outputValue.value = "BMI: "+ calculateFormulaBMI(formulaArray[0], formulaArray[1]);		
     });
 });
 

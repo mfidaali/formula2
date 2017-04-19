@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$outputValue.value='';	
 	
 	//Calculate Formula, rounded
-	$outputValue.value = calculateFormula(formulaArray[0], formulaArray[1]) + " mmol";		
+	$outputValue.value = "NaHCO3: " + calculateFormula(formulaArray[0], formulaArray[1]) + " mmol";		
 	
     });
 });

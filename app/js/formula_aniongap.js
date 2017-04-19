@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var $chlorideValue    = document.querySelector('.f2_chloride-input');
     var $bicarbonateValue = document.querySelector('.f2_bicarbonate-input');
     var $outputValue      = document.querySelector('.f2_anion-output');
-    var $normbereichValue = document.querySelector('.f2_normbereich-output');
+    var $outputNormValues = document.querySelector('.f2_norm-values'); 
 
 
     //Reset button
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$chlorideValue.value='';
 	$bicarbonateValue.value='';
 	$outputValue.value='';
-	$normbereichValue.value  = '';	
+	$outputNormValues.value  = '';	
     });
     
     //Calculate button
@@ -63,16 +63,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	//Reset all ouput values before calculating
 	$outputValue.value  = '';	
-	$normbereichValue.value  = '';	
+	$outputNormValues.value  = '';	
 	
 	//Calculate Formula
-	$outputValue.value = calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]);
+	$outputValue.value = "Anion: " + calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]) + " mmol/L";
 
 	if (potassiumNum != "" && potassiumNum != '0'){
-	    $normbereichValue.value = normbereichHash['with_potassium'];	
+	    $outputNormValues.innerHTML = "Norm: " + normbereichHash['with_potassium'];	
 	}
 	else{	    
-	    $normbereichValue.value = normbereichHash['without_potassium'];	
+	    $outputNormValues.innerHTML = "Norm: " + normbereichHash['without_potassium'];	
 	}
 	    
     });

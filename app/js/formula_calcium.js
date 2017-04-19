@@ -112,10 +112,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	//Calculate Formula based on $albuminUnitSelect
 	if ($albuminUnitSelect.value=="L"){
-	    $outputValue.value = calculateFormulaL(formulaArray[0], formulaArray[1])  + " " + $outputFinalUnits;
+	    $outputValue.value = "Korrigiertes Calcium: "+ calculateFormulaL(formulaArray[0], formulaArray[1]) + " " + $outputFinalUnits;
 	}
 	else{
-	    $outputValue.value = calculateFormulaDL(formulaArray[0], formulaArray[1]) + " " + $outputFinalUnits;
+	    $outputValue.value = "Korrigiertes Calcium: "+ calculateFormulaDL(formulaArray[0], formulaArray[1]) + " " + $outputFinalUnits;
 	}	
     });
 });

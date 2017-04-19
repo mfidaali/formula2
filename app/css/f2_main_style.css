@@ -60,6 +60,10 @@
     font-family: 'Lato', sans-serif;
 }
 
+.opacity {
+    opacity: 0.5;
+}
+
 p {
     font-weight: 300;
     color: #4d4d4d;
@@ -80,6 +84,8 @@ label {
     font-family: 'Lato', sans-serif;
     
 }
+
+
 
 ::-webkit-input-placeholder {
     opacity: 0.5 !important; /* for older chrome versions. may no longer apply. */
