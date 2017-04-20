@@ -8,16 +8,16 @@ var selectPlaceholdersHash = {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var $calciumValue      = document.querySelector('.f2_calcium-input'); 
-    var $albuminValue	   = document.querySelector('.f2_albumin-input'); 
+    var $calciumValue      = document.querySelector('.f2_calcium-input');
+    var $albuminValue	   = document.querySelector('.f2_albumin-input');
     var $outputValue	   = document.querySelector('.f2_calcium-output');
-    var $calciumUnitSelect = document.querySelector('.f2_select-calcium-units'); 
-    var $albuminUnitSelect = document.querySelector('.f2_select-albumin-units'); 
-    var $outputNormValues  = document.querySelector('.f2_norm-values'); 
-    
-    var initialCalciumSelectValue = $calciumUnitSelect.value; 
+    var $calciumUnitSelect = document.querySelector('.f2_select-calcium-units');
+    var $albuminUnitSelect = document.querySelector('.f2_select-albumin-units');
+    var $outputNormValues  = document.querySelector('.f2_norm-values');
+
+    var initialCalciumSelectValue = $calciumUnitSelect.value;
     var initialAlbuminSelectValue = $albuminUnitSelect.value;
-    
+
     //Change placeholders and inputted values based on selected calcium units
     $calciumUnitSelect.addEventListener('change', function() {
 	var calciumNum;
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	initialAlbuminSelectValue = $albuminUnitSelect.value;
     });
-    
-    
+
+
     //Reset button
     document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
@@ -73,18 +73,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Calculate button
     document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
-	
+
 	//Stop form input submission
 	event.preventDefault();
-	
-	//Array based on inputs 
+
+	//Array based on inputs
 	var inputArray = [$calciumValue, $albuminValue];
 
 	//Array of inputs for Formula
 	var formulaArray= [];
-	
+
 	//Create number obj based on input and make sure it is indeed a number
-	//If all checks are good, add to formulaArray inputs 
+	//If all checks are good, add to formulaArray inputs
 	for (var i=0; i<inputArray.length; i++){
 	    var num = createNumCommaAndPoint(inputArray[i].value);
 	    if (!validateNum(num)){
@@ -96,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		formulaArray.push(num);
 	    }
 	}
-			
+
 	//Reset all ouput values before calculating
-	$outputValue.value = '';	
-	
+	$outputValue.value = '';
+
 	//Display correct units based on $calciumUnitSelect
 	var $outputFinalUnits;
 	if($calciumUnitSelect.value=="mmol"){
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	else{
 	    $outputValue.value = "Korrigiertes Calcium: "+ calculateFormulaDL(formulaArray[0], formulaArray[1]) + " " + $outputFinalUnits;
-	}	
+	}
     });
 });
 
@@ -127,23 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
  * @return {number} Calculated value
  */
 
-function calculateFormulaL(input1, input2){ 	
-    return input1 - 0.025*input2 + 1;	    
+function calculateFormulaL(input1, input2){
+    return input1 - 0.025*input2 + 1;
 }
 
-function calculateFormulaDL(input1, input2){ 	
-    return input1 - 0.25*input2 + 1;	    
-}
-
-if (typeof exports === 'object' && typeof exports.nodeName !== 'string' && typeof define !== 'function') {
-    var define = function (factory) {
-	factory(require, exports, module);
-    };
- 
-    define(function (require, exports, module) {
-	// Only attach properties to the exports object to define
-	// the module's properties.
-	exports.calculateFormulaL  = calculateFormulaL;
-	exports.calculateFormulaDL = calculateFormulaDL;
-    });
+function calculateFormulaDL(input1, input2){
+    return input1 - 0.25*input2 + 1;
 }

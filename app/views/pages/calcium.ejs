@@ -1,0 +1,140 @@
+<% layout('../layouts/default') -%>
+
+<% script('/js/formula_helper_script.js') -%>
+<% script('/js/formula_calcium.js') -%>
+
+<% stylesheet('/css/f2_infolist_style.css') -%>
+
+<div class="calculated-formulas">
+  <div class="f2_header f2_blue">
+    <h1>
+      Korrigiertes Calcium
+    </h1>
+  </div>
+  <div class="f2_description">
+    <p>
+      Grundsätzlich ist zwischen Gesamtcalcium und ionisiertem (=freiem bzw. aktivem)
+      <a href="https://amboss.miamed.de/library#xid=lo0vXS&anker=a9640cedc7af6a21a83e8aebc743e462" target="_blank">
+      Calcium
+      </a>
+      zu unterscheiden. Da das Gesamtcalcium im Serum etwa zur Hälfte über die Bindung an
+      <a href="https://amboss.miamed.de/library#xid=Jo0s1S&anker=f1d44820c4d351d8ed5beec1e83537c2" target="_blank">
+      Proteine
+      </a>
+      (v.a.
+      <a href="https://amboss.miamed.de/library#xid=Ln0wFg&anker=ebe5ae7c9810fa43ef86b9c558d30eb7" target="_blank">
+      Albumin
+      </a>
+      ) transportiert werden muss, geht ein erniedrigter Proteingehalt (z.B. im höheren Lebensalter) im
+      <a href="https://amboss.miamed.de/library#xid=LK0wSS&anker=b8d91980732a97ce3e38aab720d3935b" target="_blank">
+      Blut
+      </a>
+      mit einem verringerten Gesamtcalcium einher. Dadurch kann z.B. eine
+      <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=5849bd4200648a462206172213221b8a" target="_blank">
+      Hypercalcämie
+      </a>
+      kaschiert werden oder fälschlicherweise eine Hypocalcämie bei normwertigem Calcium angenommen werden. Eine
+      <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=46a7f794277385d3061f9892f3a4d064" target="_blank">
+      Albumin-Korrektur
+      </a>
+      sollte deswegen bei jeder Calcium-Bestimmung angestrebt werden. Ergibt sich nach Korrektur weiterhin ein erniedrigter Gesamtcalciumgehalt, ist auch das ionisierte Calcium erniedrigt!
+    </p>
+  </div>
+  <div class="f2_calculator">
+    <div class="form-style-8-calculator">
+      <form method="POST">
+        <label for="calcium">
+        Calcium [Serum]:
+        </label>
+        <input class="f2_calcium-input f2_js" placeholder=" Norm: 2.20 - 2.65 mmol/L" type="text">
+        <select class="f2_select-calcium-units f2_js">
+          <option selected="" value="mmol">
+            mmol/L
+          </option>
+          <option value="mg">
+            mg/dL
+          </option>
+        </select>
+        <label for="albumin">
+        Albumin [Serum]:
+        </label>
+        <input class="f2_albumin-input f2_js" placeholder=" Norm: 35 - 50 g/L" type="text">
+        <select class="f2_select-albumin-units f2_js">
+          <option selected="" value="L">
+            g/L
+          </option>
+          <option value="dL">
+            g/dL
+          </option>
+        </select>
+        <input class="f2_btn-calc f2_js" type="button" value="Berechnen">
+        <input class="f2_btn-reset f2_js" type="button" value="Zurücksetzen">
+        <input class="f2_calcium-output f2_js" placeholder="Korrigiertes Calcium" type="text">
+        <strong>
+          <p class="f2_norm-values f2_js">
+          </p>
+        </strong>
+        <div class="form-style-8-calculator-footnotes">
+          <h3>
+            Formula Used:
+            <br>
+            Calcium
+            <sub>
+            korrigiert
+            </sub>
+            [mmol/l] = Calcium
+            <sub>
+            gemessen
+            </sub>
+            [mmol/l] – (0,025 x Albumin [g/l]) + 1
+            </br>
+          </h3>
+        </div>
+        </input>
+        </input>
+        </input>
+        </input>
+        </input>
+      </form>
+    </div>
+  </div>
+  <div class="f2_further-info f2_blue">
+    <h3>
+      Weiterführende Inhalte im AMBOSS
+    </h3>
+    <div class="new-list">
+      <ul>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=444cd2ab2a8811111a389f1083fbf1f8" target="_blank">
+          Basislabor bei allen Kalziumstörungen
+          </a>
+        </li>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=b5ad7b3915a89f2d4cee16f14b3b11cb" target="_blank">
+          Weitere Abklärung der Hypocalcämie
+          </a>
+        </li>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=ca6d8eda717a2f3475146a1360fc5d7d" target="_blank">
+          Weitere Abklärung der Hypercalcämie
+          </a>
+        </li>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=22123cb36dd9abe9e849e613f9de3bcc" target="_blank">
+          Therapie der Hypercalcämie
+          </a>
+        </li>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=e993964fd8373930b76048895f315218" target="_blank">
+          Therapie der Hypocalcämie
+          </a>
+        </li>
+        <li>
+          <a href="https://amboss.miamed.de/library#xid=Hg0K92&anker=68dd6d922bc89c83d78314c903feab62" target="_blank">
+          Kalziumhaushalt - Pathophysiologische Grundlagen
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
