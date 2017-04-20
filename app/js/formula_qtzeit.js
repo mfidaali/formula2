@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Reset inputs and outputs
 	$qtValue.value = '';
 	$freqValue.value = '';
-	$outputValue.value = '';	
+	$outputValue.value = '';
+	$outputNormValues.innerHTML = '';
     });
     
     //Calculate button
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	//Reset all ouput values before calculating
 	$outputValue.value='';	
+	$outputNormValues.innerHTML = '';
 	
 	//Calculate Formula, rounded
 	if($qtUnitSelect.value=="ms"){
@@ -89,7 +91,7 @@ function calculateFormulaMS(input1, input2){
  * @return {number} Calculated value
  */			  
 function calculateFormula50(input1, input2){
-    var seconds = Math.round(input1/50 * 10000)/10000;
+    var seconds = Math.round(input1*1000/50 * 10000)/10000;
     return Math.round((seconds/Math.sqrt(60/input2)) * 10000)/10000;
 }
 
@@ -100,6 +102,6 @@ function calculateFormula50(input1, input2){
  * @return {number} Calculated value
  */			  
 function calculateFormula25(input1, input2){ 	
-    var seconds = Math.round(input1/25 * 10000)/10000;
+    var seconds = Math.round(input1*1000/25 * 10000)/10000;
     return Math.round((seconds/Math.sqrt(60/input2)) * 10000)/10000;
 }
