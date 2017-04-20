@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$outputNormValues.value  = '';	
 	
 	//Calculate Formula
-	$outputValue.value = "Anion: " + calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]) + " mmol/L";
+	$outputValue.value = "Anionenluecke: " + calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]) + " mmol/L";
 
 	if (potassiumNum != "" && potassiumNum != '0'){
 	    $outputNormValues.innerHTML = "Norm: " + normbereichHash['with_potassium'];	
