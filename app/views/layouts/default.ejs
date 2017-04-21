@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="/images/favicon.ico" rel="icon">
+    <title>Formulas Page</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/css/vendor/ie10-viewport-bug-workaround.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="/css/vendor/dashboard.css" rel="stylesheet" type="text/css">
+    <link href="/css/f2_main_style.css" rel="stylesheet" type="text/css">
+    <link href="/css/f2_calculator_style.css" rel="stylesheet" type="text/css">
+    <link href="/css/f2_infolist_style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
+    <%- stylesheets %>
+  </head>
+  <body>
+    <% include ../components/nav %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <% include ../components/sidebar %>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <%- body -%>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <% script('js/vendor/bootstrap.min.js') -%>
+    <% script('js/vendor/ie10-viewport-bug-workaround.js') -%>
+    <%- scripts %>
+  </body>
+</html>
