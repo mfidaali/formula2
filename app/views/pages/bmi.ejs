@@ -3,6 +3,12 @@
 <% script('/js/formula_helper_script.js') -%>
 <% script('/js/formula_bmi.js') -%>
 
+<% stylesheet('/css/f2_main_style.css') -%>
+<% stylesheet('/css/f2_calculator_style.css') -%>
+<% stylesheet('/css/f2_infolist_style.css') -%>
+<% stylesheet('/css/f2_table_style.css') -%>
+
+
 <div class="calculated-formulas">
   <div class="f2_header f2_blue">
     <h1>Body Mass Index</h1>
@@ -25,7 +31,7 @@
         <input type="text" class="f2_koerpergrosse-input f2_js"  placeholder="in cm">
         <input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
         <input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
-        <input type="text" class="f2_BMI-output f2_js" placeholder="BMI Value">
+        <input type="text" class="f2_BMI-output f2_js" placeholder="BMI-Wert">
         <div class="form-style-8-calculator-footnotes">
           <h3>Verwendete Formel:<br>BMI = Gewicht<sub>[kg]</sub> &divide; Größe<sub>[m<sup>2</sup>]</sub></h3>
         </div>
@@ -41,33 +47,33 @@
     </thead>
     <tbody class="f2_table-hover">
       <tr>
-        <td class="f2_text-left"><18.5</td>
+        <td class="f2_text-left">< 18,5</td>
         <td class="f2_text-left">Untergewicht</td>
       </tr>
       <tr>
-        <td class="f2_text-left">18.5-24.9</td>
+        <td class="f2_text-left">18,5 - 24,9</td>
         <td class="f2_text-left">Normalgewicht</td>
       </tr>
       <tr>
-        <td class="f2_text-left">25-29.9</td>
-        <td class="f2_text-left">Prädipositas</td>
+        <td class="f2_text-left">25 - 29,9</td>
+        <td class="f2_text-left">Präadipositas</td>
       </tr>
       <tr>
-        <td class="f2_text-left">30-34,9</td>
+        <td class="f2_text-left">30 - 34,9</td>
         <td class="f2_text-left">Adipositas Grad I</td>
       </tr>
       <tr>
-        <td class="f2_text-left">35-39.9</td>
+        <td class="f2_text-left">35 - 39,9</td>
         <td class="f2_text-left">Adipositas Grad II</td>
       </tr>
       <tr>
-        <td class="f2_text-left">&#8805;40</td>
+        <td class="f2_text-left">&#8805; 40</td>
         <td class="f2_text-left">Adipositas Grad III</td>
       </tr>
     </tbody>
   </table>
   <div class="f2_further-info f2_blue">
-    <h3>Weiterführende Inhalte im AMBOSS</h3>
+    <h3>Weiterführende Inhalte in AMBOSS</h3>
     <div class="new-list">
       <ul>
         <li><a target="_blank" href="https://amboss.miamed.de/library#xid=4g03v2&anker=f43ed011e16750b58fb1874b1ce1a79b">Definition des metabolischen Syndroms</a></li>

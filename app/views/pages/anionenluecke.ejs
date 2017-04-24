@@ -1,0 +1,53 @@
+<% layout('../layouts/default') -%>
+
+<% script('/js/formula_helper_script.js') -%>
+<% script('/js/formula_aniongap.js') -%>
+
+<% stylesheet('/css/f2_main_style.css') -%>
+<% stylesheet('/css/f2_calculator_style.css') -%>
+<% stylesheet('/css/f2_infolist_style.css') -%>
+
+
+<div class="calculated-formulas">
+  <div class="f2_header f2_blue">
+    <h1>Anionenlücke</h1>
+  </div>
+  <div class="f2_description">
+    <p>Die Anionenlücke ist ein errechneter Parameter zur weiteren Abklärung einer <a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=646fe97a9415c1b9c140a4692634d508">metabolischen Azidose</a>. Eine vergrößerte Anionenlücke spricht für eine "Additionsazidose". Die Summe der <a target="_blank" href="https://amboss.miamed.de/library#xid=hK0cTS&anker=10a66bdfefcffa1ac3f75e3867b6e7ea">Kationen</a> und <a target="_blank" href="https://amboss.miamed.de/library#xid=hK0cTS&anker=97b5a92ca0f1bd97d6cb4255abf4d235">Anionen</a> im <a target="_blank" href="https://amboss.miamed.de/library#xid=LK0wSS&anker=b8d91980732a97ce3e38aab720d3935b">Blut</a> ist gleich (elektrische Neutralität). Die Kationen werden überwiegend durch <a target="_blank" href="https://amboss.miamed.de/library#xid=lo0vXS&anker=9d80157c8e424ee74a8f00a84fe4c97d">Natrium</a> (Na+)  repräsentiert, die Anionen durch Bikarbonat und <a target="_blank" href="https://amboss.miamed.de/library#xid=Ln0wFg&anker=b6701419e6ff03275025079b6a95a21a">Chlorid</a> (HCO3-, Cl-).  Weiterhin gibt es in beiden Fraktionen zusätzliche Bestandteile , wobei diese physiologisch in der Anionenfraktion größer sind. Subtrahiert man die Bikarbonat- und Chloridkonzentration von der Natriumkonzentration, erhält man die Differenz der Anionen- zur Kationenfraktion, die auch als Anionenlücke bezeichnet wird. Und wem das zu kompliziert ist, der sollte diesen Rechner verwenden ;-)
+    </p>
+  </div>
+  <div class="f2_calculator">
+    <div class="form-style-8-calculator">
+      <form method="POST">
+	<label for="Serum Sodium Level">Natriumkonzentration:</label> 
+	<input type="text" class="f2_sodium-input f2_js" placeholder="ca. 135-145 mmol/L">
+	<label for="Serum Potassium Level"><span class="opacity">Kaliumkonzentration:</span></label> 
+	<input type="text" class="f2_potassium-input f2_js" placeholder="3,5-5 mmol/L, OPTIONAL">
+	<label for="Serum Chloride Level">Chloridkonzentration:</label> 
+	<input type="text" class="f2_chloride-input f2_js" placeholder="96-110 mmol/L">
+	<label for="Serum Bicarbonate Level">Bicarbonat-Konzentration:</label> 
+	<input type="text" class="f2_bicarbonate-input f2_js" placeholder="20-27 mmol/L">
+	<input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
+	<input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
+	<input type="text" class="f2_anion-output f2_js" placeholder="Anionenlücke Value">
+	<strong>
+	  <p class="f2_norm-values f2_js"></p>
+	</strong>
+	<div class="form-style-8-calculator-footnotes f2_formula_image">
+	  <h3>Verwendete Formel:<br>Anionenlücke = (Na+K) - (Cl + HCO<sub>3</sub>)</h3>
+	</div>
+      </form>
+    </div>
+  </div>
+  <div class="f2_further-info f2_blue">
+    <h3>Weiterführende Inhalte in AMBOSS</h3>
+    <div class="new-list">
+      <ul>
+	<li><a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=fd37ef0b20b34573a87442e0f2a1cec0">Blutgasanalyse: Azidose, Alkalose, respiratorisch oder metabolisch?</a></li>
+	<li><a target="_blank" href="">Diagnostische Kriterien und Einteilung des Coma diabeticum</a></li>
+	<li><a target="_blank" href="">Differentialdiagnosen der metabolischen Azidose mit Anionenlücke</a></li>
+	<li><a target="_blank" href="https://amboss.miamed.de/library#xid=7m04Sg&anker=f862baae5009869bed5011b694b7afc8">Laktatazidose unter Metformin</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

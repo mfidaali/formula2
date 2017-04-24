@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var $outputValue      = document.querySelector('.f2_qt-output'); 
     var $outputNormValues = document.querySelector('.f2_norm-values'); 
 
-    //Change placeholders and inputted values based on selected calcium units
+    //Change placeholders and inputted values based on selected QT units
     $qtUnitSelect.addEventListener('change', function() {
     	$qtValue.placeholder = selectPlaceholdersHash[$qtUnitSelect.value];
     });

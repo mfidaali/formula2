@@ -1,0 +1,116 @@
+<% layout('../layouts/blank') -%>
+
+<% script('/js/formula_helper_script.js') -%>
+<% script('/js/formula_wells_score.js') -%>
+
+<% stylesheet('/css/f2_main_style.css')-%>
+<% stylesheet('/css/f2_calculator_style.css')-%>
+<% stylesheet('/css/f2_infolist_style.css') -%>
+
+<div class="calculated-formulas">
+  <div class="f2_header f2_blue">
+    <h1>Wells Score</h1>
+  </div>
+  <div class="f2_description">
+    <p>Aufgrund ihrer hohen diagnostischen Sensitivität ( > 98 % ) aber niedrigen Spezifität ( < 50 % ) eignet sich die D-Dimer-Bestimmung zum Ausschluss einer Thromboembolie. Die Ergebnisse sollten jedoch immer in Kombination mit der klinischen Wahrscheinlichkeit interpretiert werden. Die aktuellen interdisziplinären S2-Leitlininien für Venenthrombose und Lungenembolie empfehlen hierzu den sog. "Wells-Score".</p>
+  </div>
+  <div class="f2_calculator">
+    <div class="form-style-8-calculator form-style-8-score-width">
+      <form method="POST">
+	<div class="table-responsive">
+	  <table class="table table-striped">
+	    <thead>
+	      <tr>
+		<th>Symptome</th>
+		<th>Symptome vorhanden</th>
+		<th>Punkte</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+		<td>Q1: Klinische Zeichen oder Symptome einer tiefen Beinvenenthrombose (mindestens Schwellung eines Beines und Schmerzen bei der Palpation der tiefliegenden Venen</td>
+		<td><input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-Yes" value="3"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+		  <br>
+		  <input type="radio" name="Klinische-Zeichen" id="Klinische-Zeichen-No" value="0"><i class="fa fa-times" aria-hidden="true"></i>
+		</td>
+		<td>3</td>
+	      </tr>
+	      <tr>
+		<td>Q2: eine andere Diagose ist weniger wahrscheinlicher als eine Lungenembolie</td>
+		<td><input type="radio" name="Lungenembolie" id="Lungenembolie-Yes" value="3"><label for="Lungenembolie-Yes">Ja</label><br>
+		  <input type="radio" name="Lungenembolie" id="Lungenembolie-No" value="0">Nein
+		</td>
+		<td>3</td>
+	      </tr>
+	      <tr>
+		<td>Q3: Herzfrequenz > 100</td>
+		<td><input type="radio" name="Herzfrequenz" id="Herzfrequenz-Yes" value="1.5">Ja<br>
+		  <input type="radio" name="Herzfrequenz" id="Herzfrequenz-No" value="0"  >Nein
+		</td>
+		<td>1,5</td>
+	      </tr>
+	      <tr>
+		<td>Q4: Immobilisierung oder chirurgischer Eingriff in den vergangen vier Wochen</td>
+		<td><input type="radio" name="Immobilisierung" id="Immobilisierung-Yes" value="1.5" >Ja<br>
+		  <input type="radio" name="Immobilisierung" id="Immobilisierung-No" value="0"   >Nein
+		</td>
+		<td>1,5</td>
+	      </tr>
+	      <tr>
+		<td>Q5: vorangegangene tiefe Beinvenenthrombose / Lungenembolie</td>
+		<td><input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-Yes" value="1.5" >Ja<br>
+		  <input type="radio" name="Beinvenenthrombose" id="Beinvenenthrombose-No" value="0"	 >Nein
+		</td>
+		<td>1,5</td>
+	      </tr>
+	      <tr>
+		<td>Q6: Bluthusten</td>
+		<td><input type="radio" name="Bluthusten" id="Bluthusten-Yes" value="1" >Ja<br>
+		  <input type="radio" name="Bluthusten" id="Bluthusten-No" value="0" >Nein
+		</td>
+		<td>1</td>
+	      </tr>
+	      <tr>
+		<td>Q7: Tumorerkrankung (unter Therapie, nach Therapie innerhalb der letzten 6 Monate oder Palliativtherapie)</td>
+		<td><input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-Yes" value="1" >Ja<br>
+		  <input type="radio" name="Tumorerkrankung" id="Tumorerkrankung-No" value="0" >Nein
+		</td>
+		<td>1</td>
+	      </tr>
+	      <tr>
+		<td><input type="button" id="btnCalc" value="Berechnen">
+		  <input type="button" id="btnReset" value="Zurücksetzen"><br>
+		</td>
+		<td></td>
+		<td></td>
+	      </tr>
+	      <tr>
+		<td>SCORE (Punktzahl):</td>
+		<td><input type="text" id="Final-Score"></td>
+		<td></td>
+	      </tr>
+	      <tr>
+		<td>
+		  <p id="Final-Score-Text"></p>
+		</td>
+		<td></td>
+		<td></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+      </form>
+    </div>
+  </div>
+  <div class="f2_further-info f2_blue">
+    <h3>Weiterführende Inhalte in AMBOSS</h3>
+    <div class="new-list">
+      <ul>
+	<li><a target="_blank" href="">KENAN</a></li>
+	<li><a target="_blank" href="">KENAN</a></li>
+	<li><a target="_blank" href="">KENAN</a></li>
+	<li><a target="_blank" href="">KENAN</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
