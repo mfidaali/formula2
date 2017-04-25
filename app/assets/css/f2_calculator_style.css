@@ -1,10 +1,10 @@
 /* CSS styling for formula calculators like calcium and aniongap */
 
-.form-style-8-score-width{
+.form-style-score-width{
         width: 900px;
 }
 
-.form-style-8-calculator{
+.form-style-calculator{
     font-family: 'Lato', sans-serif;
     padding: 10px;
     background: #FFFFFF;
@@ -15,7 +15,7 @@
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 
 }
-.form-style-8-calculator h2{
+.form-style-calculator h2{
     background: #4D4D4D;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
@@ -26,13 +26,17 @@
     margin: 10px -10px 10px -10px;
 }
 
-.form-style-8-calculator-footnotes{
+.form-style-calculator-footnotes{
     background-color: #4D4D4D;
     padding: 0;
     margin: 0px -10px -20px -10px;
 }
 
-.form-style-8-calculator h3{
+.form-style-calculator-footnotes a{
+    color:#7bb7ea;
+}
+
+.form-style-calculator h3{
     font-family: 'Lato', sans-serif;
     color: white;
     font-size: 12px;
@@ -43,17 +47,17 @@
     letter-spacing: 1px;
 }
 
-.form-style-8-calculator input[type="text"],
-.form-style-8-calculator input[type="date"],
-.form-style-8-calculator input[type="datetime"],
-.form-style-8-calculator input[type="email"],
-.form-style-8-calculator input[type="number"],
-.form-style-8-calculator input[type="search"],
-.form-style-8-calculator input[type="time"],
-.form-style-8-calculator input[type="url"],
-.form-style-8-calculator input[type="password"],
-.form-style-8-calculator textarea,
-.form-style-8-calculator select 
+.form-style-calculator input[type="text"],
+.form-style-calculator input[type="date"],
+.form-style-calculator input[type="datetime"],
+.form-style-calculator input[type="email"],
+.form-style-calculator input[type="number"],
+.form-style-calculator input[type="search"],
+.form-style-calculator input[type="time"],
+.form-style-calculator input[type="url"],
+.form-style-calculator input[type="password"],
+.form-style-calculator textarea,
+.form-style-calculator select 
 {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -64,18 +68,23 @@
     padding: 0px 0px 0px 0px;
     border: none;
     border-bottom: 1px solid #ddd;
-    background: transparent;
     margin-top: -5px;
     margin-bottom: 0px;
     font: 14px Arial, Helvetica, sans-serif;
     height: 45px;
 }
-.form-style-8-calculator textarea{
+
+.f2_input__error {
+    background-color: #e06868;
+    border-bottom-color:red;
+}
+
+.form-style-calculator textarea{
     resize:none;
     overflow: hidden;
 }
-.form-style-8-calculator input[type="button"], 
-.form-style-8-calculator input[type="submit"]{
+.form-style-calculator input[type="button"], 
+.form-style-calculator input[type="submit"]{
     -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;
@@ -94,8 +103,8 @@
     margin-bottom: 15px;
 }
 
-.form-style-8-calculator input[type="button"]:hover, 
-.form-style-8-calculator input[type="submit"]:hover {
+.form-style-calculator input[type="button"]:hover, 
+.form-style-calculator input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
 }

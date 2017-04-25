@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var $outputValue      = document.querySelector('.f2_anion-output');
     var $outputNormValues = document.querySelector('.f2_norm-values'); 
 
+    //Array based on inputs, NOT including the OPTIONAL POTASSIUM input
+    var inputArray = [$sodiumValue, $chlorideValue, $bicarbonateValue];
 
     //Reset button
     document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
@@ -20,10 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	event.preventDefault();
 
 	//Reset inputs and outputs
-	$sodiumValue.value='';
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].value='';
+	    inputArray[i].classList.remove('f2_input__error');
+	}
+	$potassiumValue.classList.remove('f2_input__error');
 	$potassiumValue.value='';
-	$chlorideValue.value='';
-	$bicarbonateValue.value='';
 	$outputValue.value='';
 	$outputNormValues.value  = '';	
     });
@@ -34,21 +38,25 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Stop form input submission
 	event.preventDefault();
 	
-	//Array based on inputs, NOT including the OPTIONAL POTASSIUM input
-	var inputArray = [$sodiumValue, $chlorideValue, $bicarbonateValue];
-	
+	//Reset all ouput values before calculating
+	$outputValue.value  = '';	
+	$outputNormValues.value  = '';	
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].classList.remove('f2_input__error');
+	    $potassiumValue.classList.remove('f2_input__error');
+	}
+
 	//Array of inputs for Formula
 	var formulaArray= [];
 
 	//Create number obj based on input and make sure it is indeed a number
 	//If all checks are good, add to formulaArray inputs 
-	for (var i=0; i<inputArray.length; i++){
+	for (i=0; i<inputArray.length; i++){
 	    var num = createNumCommaAndPoint(inputArray[i].value);
 	    if (!validateNum(num)){
-		var string = inputArray[i].getAttribute("class");
-		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
-		    return;
-		}
+		inputArray[i].classList.add('f2_input__error');
+		return;
+	    }
 	    else{
 		formulaArray.push(num);
 	    }
@@ -57,13 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Check optional Potassium Input
 	var potassiumNum = createNumCommaAndPoint($potassiumValue.value);
 	if(!validateNumWithEmptyString(potassiumNum)){
-	    alert($potassiumValue.getAttribute("class") + ' is not an acceptable input. Please make sure to input a number or leave it blank. Please do not input a character');
+	    $potassiumValue.classList.add('f2_input__error');
 	    return;
 	}
 
-	//Reset all ouput values before calculating
-	$outputValue.value  = '';	
-	$outputNormValues.value  = '';	
 	
 	//Calculate Formula
 	$outputValue.value = "Anionenluecke: " + calculateFormula(formulaArray[0], potassiumNum, formulaArray[1], formulaArray[2]) + " mmol/L";
@@ -79,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Calcium Formulas
+ * Aniongap Formulas
  * @param  {number} input1 - First parameter should be sodium Value
  * @param {number} input2 - Second parameter should be potassium Value
  * @param {number} input3 - Second parameter should be chloride Value

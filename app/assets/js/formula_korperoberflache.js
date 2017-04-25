@@ -4,7 +4,10 @@
      var $koerpergrosseValue  = document.querySelector('.f2_koerpergrosse-input'); 
      var $outputKMValue       = document.querySelector('.f2_korperoberflache-mosteller-output'); 
      var $outputKDValue       = document.querySelector('.f2_korperoberflache-dubois-output'); 
-     
+
+     //Array based on inputs 
+     var inputArray = [$koerpergewichtValue, $koerpergrosseValue];
+
      //Reset button
     document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
 
@@ -12,8 +15,10 @@
 	event.preventDefault();
 
 	//Reset inputs and outputs
-	$koerpergewichtValue.value='';
-	$koerpergrosseValue.value='';
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].value='';
+	    inputArray[i].classList.remove('f2_input__error');
+	}
 	$outputKMValue.value='';	
 	$outputKDValue.value='';	
     });
@@ -23,31 +28,30 @@
 	
 	//Stop form input submission
 	event.preventDefault();
-	
-	//Array based on inputs 
-	var inputArray = [$koerpergewichtValue, $koerpergrosseValue];
+
+	//Reset all ouput values before calculating
+	$outputKMValue.value  = '';	
+	$outputKDValue.value  = '';	
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].classList.remove('f2_input__error');
+	}
 
 	//Array of inputs for Formula
 	var formulaArray= [];
 	
 	//Create number obj based on input and make sure it is indeed a number
 	//If all checks are good, add to formulaArray inputs 
-	for (var i=0; i<inputArray.length; i++){
+	for (i=0; i<inputArray.length; i++){
 	    var num = createNumCommaAndPoint(inputArray[i].value);
 	    if (!validateNum(num)){
-		var string = inputArray[i].getAttribute("class");
-		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		inputArray[i].classList.add('f2_input__error');
 		return;
 	    }
 	    else{
 		formulaArray.push(num);
 	    }
 	}
-		
-	//Reset all ouput values before calculating
-	$outputKMValue.value  = '';	
-	$outputKDValue.value  = '';	
-	
+			
 	//Calculate Formula, rounded
 	$outputKMValue.value = "Mosteller: " + calculateFormulaKM(formulaArray[0], formulaArray[1]);		
 	$outputKDValue.value = "DuBois: " + calculateFormulaKD(formulaArray[0], formulaArray[1]);	

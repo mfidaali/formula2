@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var $outputValue      = document.querySelector('.f2_qt-output'); 
     var $outputNormValues = document.querySelector('.f2_norm-values'); 
 
+    //Array based on inputs 
+    var inputArray = [$qtValue, $freqValue];
+    
     //Change placeholders and inputted values based on selected QT units
     $qtUnitSelect.addEventListener('change', function() {
     	$qtValue.placeholder = selectPlaceholdersHash[$qtUnitSelect.value];
@@ -23,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	event.preventDefault();
 
 	//Reset inputs and outputs
-	$qtValue.value = '';
-	$freqValue.value = '';
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].value='';
+	    inputArray[i].classList.remove('f2_input__error');
+	}
 	$outputValue.value = '';
 	$outputNormValues.innerHTML = '';
     });
@@ -34,30 +39,29 @@ document.addEventListener('DOMContentLoaded', function() {
 	//Stop form input submission
 	event.preventDefault();
 
-	//Array based on inputs 
-	var inputArray = [$qtValue, $freqValue];
+	//Reset all ouput values before calculating
+	$outputValue.value='';	
+	$outputNormValues.innerHTML = '';
+	for (var i=0; i<inputArray.length; i++){
+	    inputArray[i].classList.remove('f2_input__error');
+	}
 
 	//Array of inputs for Formula
 	var formulaArray= [];
 	
 	//Create number obj based on input and make sure it is indeed a number.
 	//If all checks are good, add to formulaArray inputs 
-	for (var i=0; i<inputArray.length; i++){
+	for (i=0; i<inputArray.length; i++){
 	    var num = createNumCommaAndPoint(inputArray[i].value);
 	    if (!validateNum(num)){
-		var string = inputArray[i].getAttribute("class");
-		alert(string+ ' is not an acceptable input. Please make sure to input a number and not a character or a blank');
+		inputArray[i].classList.add('f2_input__error');
 		return;
 	    }
 	    else{
 		formulaArray.push(num);
 	    }
 	}
-	
-	//Reset all ouput values before calculating
-	$outputValue.value='';	
-	$outputNormValues.innerHTML = '';
-	
+		
 	//Calculate Formula, rounded
 	if($qtUnitSelect.value=="ms"){
 	    $outputValue.value = "QTc: " + calculateFormulaMS(formulaArray[0], formulaArray[1]) + " ms";
