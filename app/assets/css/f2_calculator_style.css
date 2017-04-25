@@ -1,8 +1,5 @@
 /* CSS styling for formula calculators like calcium and aniongap */
 
-.form-style-score-width{
-        width: 900px;
-}
 
 .form-style-calculator{
     font-family: 'Lato', sans-serif;
@@ -15,6 +12,12 @@
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 
 }
+
+.form-style-score-width{
+        width: 900px;
+}
+
+
 .form-style-calculator h2{
     background: #4D4D4D;
     text-transform: uppercase;

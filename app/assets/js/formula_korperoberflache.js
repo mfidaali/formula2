@@ -54,7 +54,7 @@
 			
 	//Calculate Formula, rounded
 	$outputKMValue.value = "Mosteller: " + calculateFormulaKM(formulaArray[0], formulaArray[1]);		
-	$outputKDValue.value = "DuBois: " + calculateFormulaKD(formulaArray[0], formulaArray[1]);	
+	$outputKDValue.value = "Du Bois: " + calculateFormulaKD(formulaArray[0], formulaArray[1]);	
 
 	
     });

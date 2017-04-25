@@ -14,7 +14,8 @@ module.exports = {
       korperoberflache: './app/assets/js/formula_korperoberflache',
       qtzeit:           './app/assets/js/formula_qtzeit',
       bicarbonate:      './app/assets/js/formula_bicarbonate',
-      anionenluecke:    './app/assets/js/formula_anionenluecke'
+      anionenluecke:    './app/assets/js/formula_anionenluecke',
+      wells_score:      './app/assets/js/formula_wells_score'
       
   },
 
