@@ -53,8 +53,8 @@
 	}
 			
 	//Calculate Formula, rounded
-	$outputKMValue.value = "Mosteller: " + calculateFormulaKM(formulaArray[0], formulaArray[1]);		
-	$outputKDValue.value = "Du Bois: " + calculateFormulaKD(formulaArray[0], formulaArray[1]);	
+	$outputKMValue.value = "Mosteller: " + calculateFormulaKM(formulaArray[0],formulaArray[1])+" m2";		
+	$outputKDValue.value = "Du Bois: " + calculateFormulaKD(formulaArray[0],formulaArray[1])+" m2";	
 
 	
     });
@@ -69,9 +69,9 @@
  */
 
 function calculateFormulaKM(input1, input2){ 	
-    return Math.round(Math.sqrt(input1*input2/3600) * 10000)/10000;	    
+    return Math.round(Math.sqrt(input1*input2/3600) * 100)/100;	    
 }
 
 function calculateFormulaKD(input1, input2){ 	
-    return  Math.round(0.007184*Math.pow(input2,0.725)*Math.pow(input1,0.425) * 10000)/10000;	    
+    return  Math.round(0.007184*Math.pow(input2,0.725)*Math.pow(input1,0.425) * 100)/100;	    
 }
