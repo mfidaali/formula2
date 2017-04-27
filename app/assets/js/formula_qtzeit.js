@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	    $outputValue.value = "QTc: " + calculateFormula25(formulaArray[0], formulaArray[1]) + " ms";
 	}
 
-	$outputNormValues.innerHTML = "Norm: ca. 350-440 ms";
+	$outputNormValues.innerHTML = "Norm: 350-440 ms";
 	
     });
 });
