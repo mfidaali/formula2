@@ -1,6 +1,6 @@
 var normbereichHash = {
-    "with_potassium"     : "16 \xB1 4 mmol/L",
-    "without_potassium"  : "11 \xB1 4 mmol/L"
+    "with_potassium"     : "11 \xB1 4 mmol/L",
+    "without_potassium"  : "7 \xB1 4 mmol/L"
 };
 
 document.addEventListener('DOMContentLoaded', function() {
