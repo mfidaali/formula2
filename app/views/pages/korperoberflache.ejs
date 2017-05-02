@@ -7,46 +7,4 @@
 <% stylesheet('/css/f2_main_style.css') -%>
 <% stylesheet('/css/f2_calculator_style.css') -%>
 
-
-<div class="calculated-formulas">
-  <div class="f2_header f2_blue">
-    <h1>Körperoberfläche</h1>
-  </div>
-  <div class="f2_description">
-    <p>Die Größe der Körperoberfläche ist u.a. für die Berechnung der <a target="_blank" href="https://amboss.miamed.de/library#xid=kg0mv2&anker=6b399fadcd92e4cbd14308203e19be9c">Kreatinin-Clearance</a>, bei der Ermittlung des Herzminutenvolumens, sowie für die Dosisberechnung im Rahmen einer Chemotherapie wichtig. Die Körperoberfläche kann nach verschiedenen Formeln berechnet werden, wobei die Formel nach Mosteller und die Formel nach Du Bois und Du Bois insbesondere für Erwachsene häufig verwendet werden.
-    </p>
-  </div>
-  <div class="f2_calculator">
-    <div class="form-style-calculator">
-      <form method="POST">
-	<label for="Korpergewicht">Körpergewicht:</label>
-	<input type="text" class="f2_koerpergewicht-input f2_js" placeholder="in kg">
-	<label for="Korpergrosse">Körpergröße:</label>
-	<input type="text" class="f2_koerpergrosse-input f2_js"  placeholder="in cm">
-	<input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
-	<input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
-	<input type="text" class="f2_korperoberflache-mosteller-output f2_js" placeholder="Körperoberfläche nach Mosteller" readonly>
-	<input type="text" class="f2_korperoberflache-dubois-output f2_js" placeholder="Körperoberfläche nach Du Bois" readonly>
-	<div class="form-style-calculator-footnotes">
-	  <h3>Verwendete Formel:<br>Mosteller RD.<br>Schätzung der Körperoberfläche nach <a target="_blank" href="http://www.nejm.org/doi/full/10.1056/NEJM198710223171717">Mosteller</a>:<br>KOF = Wurzel(Größe[cm] &times; Gewicht[kg] &divide; 3600)<br><br>
-	    Du Bois D, Du Bois EF.<br>Schätzung der Körperoberfläche nach <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/2520314">Du Bois und Du Bois</a>:<br>KOF = 0,007184 &times; Größe[cm]<sup>0,725</sup> &times; Gewicht[kg]<sup>0,425</sup>
-	  </h3>
-	</div>
-      </form>
-    </div>
-  </div>
-  <!-- Not needed for this formula
-       <div class="f2_further-info f2_blue">
-       <h3>Weiterführende Inhalte in AMBOSS</h3> 
-       <div class="new-list">
-       <ul>
-       <li><a target="_blank" href="">INFO</a></li>
-       <li><a target="_blank" href="">INFO</a></li>
-       <li><a target="_blank" href="">INFO</a></li>
-       <li><a target="_blank" href="">INFO</a></li>
-       <li><a target="_blank" href="">INFO</a></li>
-       </ul>
-       </div>
-       </div>
-     --> 
-</div>
+<% include ../components/pages/korperoberflache.ejs %>

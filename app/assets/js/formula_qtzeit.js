@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * @return {number} Calculated value
  */			  
 function calculateFormulaMS(input1, input2){ 	
-    return Math.round((input1/Math.sqrt(60/input2)) * 10000)/10000;
+    return Math.round((input1/Math.sqrt(60/input2)) * 100)/100;
 }
 
 /**

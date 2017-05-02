@@ -64,5 +64,5 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 
 function calculateFormulaBMI(input1, input2){ 	
-    return Math.round(input1/0.0001/Math.pow(input2,2) * 1000)/1000;		    
+    return Math.round(input1/0.0001/Math.pow(input2,2) * 10)/10;		    
 }
