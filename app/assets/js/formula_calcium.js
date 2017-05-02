@@ -1,8 +1,8 @@
 var selectPlaceholdersHash = {
-    "mmol": "Norm: 2.20 - 2.65 mmol/L",
-    "mg"  : "Norm: 8.80 - 10.60 mg/dL",
-    "L"   : "Norm: 35 - 50 g/L",
-    "dL"  : "Norm: 3.5 - 5.0 g/dL"
+    "mmol": "Norm: 2.20–2.65 mmol/L",
+    "mg"  : "Norm: 8.80–10.60 mg/dL",
+    "L"   : "Norm: 35–50 g/L",
+    "dL"  : "Norm: 3.5–5.0 g/dL"
 };
 
 
