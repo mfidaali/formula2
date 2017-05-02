@@ -89,16 +89,20 @@ label {
 
 ::-webkit-input-placeholder {
     opacity: 0.5 !important; /* for older chrome versions. may no longer apply. */
+    padding-left: 5px; 
 }
 
 :-moz-placeholder { /* Firefox 18- */
     opacity: 0.5 !important;
+    padding-left: 5px; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
     opacity: 0.5 !important;
+    padding-left: 5px; 
 }
 
 :-ms-input-placeholder {
     opacity: 0.5 !important;
+    padding-left: 5px; 
 }

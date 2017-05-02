@@ -68,7 +68,7 @@
     outline: none;
     display: block;
     width: 100%;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 5px;
     border: none;
     border-bottom: 1px solid #ddd;
     margin-top: -5px;
@@ -78,7 +78,7 @@
 }
 
 .f2_input__error {
-    background-color: #e06868;
+    background-color: #ac5213;
     border-bottom-color:red;
 }
 
