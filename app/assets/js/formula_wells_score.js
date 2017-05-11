@@ -1,28 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     //Global Variables
-    var questionStrings = ['Klinische-Zeichen',
-			   'Lungenembolie',
-			   'Herzfrequenz',
-			   'Immobilisierung',
-			   'Beinvenenthrombose',
-			   'Bluthusten',
-			   'Tumorerkrankung'];
+    var questionStrings = ['klinische-zeichen',
+			   'lungenembolie',
+			   'herzfrequenz',
+			   'immobilisierung',
+			   'beinvenenthrombose',
+			   'bluthusten',
+			   'tumorerkrankung'];
     
     var arrayOfHashQuestions=[];
     for (var i=0; i<questionStrings.length; i++){
 	var hash= {
-	    "yes": document.querySelector('#'+questionStrings[i]+'-Yes'),
-	    "no": document.querySelector('#'+questionStrings[i]+'-No')
+	    "yes": document.querySelector('#'+questionStrings[i]+'-yes'),
+	    "no": document.querySelector('#'+questionStrings[i]+'-no')
 	};
 	arrayOfHashQuestions.push(hash);
     }
     
-    var $outputValue = document.querySelector('#Final-Score');
-    var $outputText  = document.querySelector('#Final-Score-Text');
+    var $outputValue = document.querySelector('.f2_wells-score-output');
+    var $outputText  = document.querySelector('.f2_output-text');
 
     //Reset button
-    document.getElementById('btnReset').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-reset').addEventListener('click', function(event) {
+
 	//Stop form input submission
 	event.preventDefault();
 
@@ -37,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 							 
     //Calculate button
-    document.getElementById('btnCalc').addEventListener('click', function(event) {
+    document.querySelector('.f2_btn-calc').addEventListener('click', function(event) {
+	
 	//Stop form input submission
 	event.preventDefault();
 

@@ -1,20 +1,20 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css);
 /* CSS styling for formula calculators like calcium and aniongap */
-
 
 .form-style-calculator{
     font-family: 'Lato', sans-serif;
     padding: 10px;
     background: #FFFFFF;
-    width: 350px;
-    margin: auto;
+    width: auto;
+    margin: 0 auto;
+    max-width: 350px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
 }
 
 .form-style-score-width{
-        width: 900px;
+    max-width: 900px;
 }
 
 
@@ -50,6 +50,16 @@
     letter-spacing: 1px;
 }
 
+.form-style-calculator label {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    color: #4d4d4d;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: 'Lato', sans-serif;
+}
+
 .form-style-calculator input[type="text"],
 .form-style-calculator input[type="date"],
 .form-style-calculator input[type="datetime"],
@@ -62,24 +72,27 @@
 .form-style-calculator textarea,
 .form-style-calculator select 
 {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    outline: none;
-    display: block;
+    outline: none !important;
+    display: block !important;
     width: 100%;
-    padding: 0px 0px 0px 5px;
-    border: none;
-    border-bottom: 1px solid #ddd;
+    padding: 0px 0px 0px 5px !important;
+    border: none !important;
+    border-bottom: 1px solid #ddd !important;
     margin-top: -5px;
     margin-bottom: 0px;
     font: 14px Arial, Helvetica, sans-serif;
-    height: 45px;
+    height: 45px !important;
+    background-color: white !important;
 }
 
-.f2_input__error {
-    background-color: #ac5213;
-    border-bottom-color:red;
+.form-style-calculator input.f2_input__error,
+.form-style-calculator select.f2_input__error, 
+.form-style-calculator textarea.f2_input__error {
+    background-color: #fbe4e4 !important;
+    border-bottom-color:red !important;
 }
 
 .form-style-calculator textarea{
@@ -113,4 +126,52 @@
 }
 
 
+.form-style-calculator-footnotes.f2_formula_image img{
+    width: 100%;
+    display: block;
+}
 
+input[type=radio].f2_with-check-font,
+input[type=checkbox].f2_with-check-font {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+    
+input[type=radio].f2_with-check-font ~ label:before,
+input[type=checkbox].f2_with-check-font ~ label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f1db";
+    letter-spacing: 10px;
+    font-size: 1.2em;
+    color: #535353;
+    width: 1.4em;
+}
+
+input[type=radio].f2_with-check-font:checked ~ label:before,
+input[type=checkbox].f2_with-check-font:checked ~ label:before  {
+    content: "\f00c";
+    font-size: 1.2em;
+    color: darkgreen;
+    letter-spacing: 5px;
+}
+input[type=checkbox].f2_with-check-font ~ label:before {        
+    content: "\f096";
+}
+input[type=checkbox].f2_with-check-font:checked ~ label:before {
+    content: "\f046";        
+    color: darkgreen;
+}
+input[type=radio].f2_with-check-font:focus ~ label:before,
+input[type=checkbox].f2_with-check-font:focus ~ label:before,
+input[type=radio].f2_with-check-font:focus ~ label,
+input[type=checkbox].f2_with-check-font:focus ~ label
+{                
+    color: green;
+}

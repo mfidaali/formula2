@@ -1,43 +1,45 @@
-<div class="calculated-formulas">
-  <div class="f2_header f2_blue">
-    <h1>Anionenlücke</h1>
-  </div>
-  <div class="f2_description">
-    <p>Die Anionenlücke ist ein Parameter, der zur weiteren Abklärung einer <a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=646fe97a9415c1b9c140a4692634d508">metabolischen Azidose</a> aus den Konzentrationen der Natrium-, Chlorid- und Bicarbonationen im <a target="_blank" href="https://amboss.miamed.de/library#xid=LK0wSS&anker=b8d91980732a97ce3e38aab720d3935b">Blut</a> berechnet wird. Optional kann auch noch die Konzentration der Kaliumionen einbezogen werden. Eine vergrößerte Anionenlücke spricht für eine Additionsazidose, wie sie z.B. bei einer Ketoazidose oder im Rahmen einer Vergiftung mit Methanol auftritt.
-    </p>
-  </div>
-  <div class="f2_calculator">
-    <div class="form-style-calculator">
-      <form method="POST">
-	<label for="Serum Sodium Level">Natriumkonzentration:</label>
-	<input type="text" class="f2_sodium-input f2_js" placeholder="Norm: 135&#8211;145 mmol/L">
-	<label for="Serum Potassium Level"><span class="opacity">Kaliumkonzentration:</span></label>
-	<input type="text" class="f2_potassium-input f2_js" placeholder="Norm: 3,5&#8211;5 mmol/L, OPTIONAL">
-	<label for="Serum Chloride Level">Chloridkonzentration:</label>
-	<input type="text" class="f2_chloride-input f2_js" placeholder="Norm: 96&#8211;110 mmol/L">
-	<label for="Serum Bicarbonate Level">Bicarbonatkonzentration:</label>
-	<input type="text" class="f2_bicarbonate-input f2_js" placeholder="Norm: 20&#8211;27 mmol/L">
-	<input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
-        <input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
-	<input type="text" class="f2_anion-output f2_js" placeholder="Anionenlücke" readonly>
-	<strong>
-	  <p class="f2_norm-values f2_js"></p>
-	</strong>
-	<div class="form-style-calculator-footnotes f2_formula_image">
-	  <h3>Verwendete Formel:<br>Anionenlücke = (Na+K) &#8211 (Cl + HCO<sub>3</sub>)</h3>
-	</div>
-      </form>
-    </div>
-  </div>
-  <div class="f2_further-info f2_blue">
-    <h3>Weiterführende Inhalte in AMBOSS</h3>
-    <div class="new-list">
-      <ul>
-	<li><a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=fd37ef0b20b34573a87442e0f2a1cec0">Blutgasanalyse: Azidose, Alkalose, respiratorisch oder metabolisch?</a></li>
-	<li><a target="_blank" href="">Diagnostische Kriterien und Einteilung des Coma diabeticum</a></li>
-	<li><a target="_blank" href="">Differentialdiagnosen der metabolischen Azidose mit Anionenlücke</a></li>
-	<li><a target="_blank" href="https://amboss.miamed.de/library#xid=7m04Sg&anker=f862baae5009869bed5011b694b7afc8">Laktatazidose unter Metformin</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<div class="calculated-formulas">
+  <div class="f2_header f2_blue">
+    <h1>Anionenlücke</h1>
+  </div>
+  <div class="f2_description">
+    <p>Die Anionenlücke ist ein Parameter, der zur weiteren Abklärung einer <a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=646fe97a9415c1b9c140a4692634d508">metabolischen Azidose</a> aus den Konzentrationen der Natrium-, Chlorid- und Bicarbonationen im <a target="_blank" href="https://amboss.miamed.de/library#xid=LK0wSS&anker=b8d91980732a97ce3e38aab720d3935b">Blut</a> berechnet wird. Optional kann auch noch die Konzentration der Kaliumionen einbezogen werden. Eine vergrößerte Anionenlücke spricht für eine Additionsazidose, wie sie z.B. bei einer Ketoazidose oder im Rahmen einer Vergiftung mit Methanol auftritt.
+    </p>
+  </div>
+  <div class="f2_calculator">
+    <div class="form-style-calculator">
+      <form method="POST">
+       <label for="Serum Sodium Level">Natriumkonzentration:</label>
+       <input type="text" class="f2_sodium-input f2_js" placeholder="Norm: 135&#8211;145 mmol/L">
+       <label for="Serum Potassium Level"><span class="opacity">Kaliumkonzentration:</span></label>
+       <input type="text" class="f2_potassium-input f2_js" placeholder="Norm: 3,5&#8211;5 mmol/L, OPTIONAL">
+       <label for="Serum Chloride Level">Chloridkonzentration:</label>
+       <input type="text" class="f2_chloride-input f2_js" placeholder="Norm: 96&#8211;110 mmol/L">
+       <label for="Serum Bicarbonate Level">Bicarbonatkonzentration:</label>
+       <input type="text" class="f2_bicarbonate-input f2_js" placeholder="Norm: 20&#8211;27 mmol/L">
+       
+       <input type="button" class="f2_btn-calc f2_js"  value="Berechnen">
+       <input type="button" class="f2_btn-reset f2_js" value="Zurücksetzen">
+       
+       <input type="text" class="f2_anion-output f2_js" placeholder="Anionenlücke" readonly>
+       <strong>
+         <p class="f2_norm-values f2_js"></p>
+       </strong>
+       <div class="form-style-calculator-footnotes f2_formula_image">
+         <h3>Verwendete Formel:<br>Anionenlücke = (Na+K) &#8211 (Cl + HCO<sub>3</sub>)</h3>
+       </div>
+     </form>
+   </div>
+ </div>
+ <div class="f2_further-info f2_blue">
+  <h3>Weiterführende Inhalte in AMBOSS</h3>
+  <div class="new-list">
+    <ul>
+     <li><a target="_blank" href="https://amboss.miamed.de/library#xid=8l0OAT&anker=fd37ef0b20b34573a87442e0f2a1cec0">Blutgasanalyse: Azidose, Alkalose, respiratorisch oder metabolisch?</a></li>
+     <li><a target="_blank" href="">Diagnostische Kriterien und Einteilung des Coma diabeticum</a></li>
+     <li><a target="_blank" href="">Differentialdiagnosen der metabolischen Azidose mit Anionenlücke</a></li>
+     <li><a target="_blank" href="https://amboss.miamed.de/library#xid=7m04Sg&anker=f862baae5009869bed5011b694b7afc8">Laktatazidose unter Metformin</a></li>
+   </ul>
+ </div>
+</div>
+</div>
