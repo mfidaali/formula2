@@ -14,7 +14,7 @@
 }
 
 .form-style-score-width{
-    max-width: 900px;
+    max-width: 700px;
 }
 
 
@@ -51,11 +51,11 @@
 }
 
 .form-style-calculator label {
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     font-weight: bold;
     color: #4d4d4d;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 24px;
     font-family: 'Lato', sans-serif;
 }
