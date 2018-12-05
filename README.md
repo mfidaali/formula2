@@ -1,2 +1,6 @@
 # formula2
-Clinical formulas calculation for MIAMED
+Clinical formula calculations for MIAMED Gmbh
+
+The various formulas can be found here:
+https://www.amboss.com/de/klinische-rechner-scores
+
